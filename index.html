@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PropEdge — AI-Powered Pick'em & Player Prop Picks for Pick6, Underdog, PrizePicks & FanDuel</title>
-<meta name="description" content="PropEdge uses an 8-agent AI engine to give you simple confidence scores on NFL, NBA, MLB, and NHL player props. 57% verified win rate across 4,000+ graded picks. Built for Pick6, Underdog, PrizePicks, and FanDuel players — no jargon, just clear picks.">
+<meta name="description" content="PropEdge uses an 8-agent AI engine to give you simple confidence scores on NFL, NBA, MLB, NHL, EPL, and MLS player props. 57% verified win rate across 6,000+ graded picks. Built for Pick6, Underdog, PrizePicks, and FanDuel players — no jargon, just clear picks.">
 <meta name="keywords" content="pick em picks, Pick6 picks, Underdog Fantasy picks, PrizePicks picks, FanDuel picks, daily fantasy sports, NFL player props, NBA player props, MLB player props, NHL player props, AI prop picks, pick em prop analyzer, parlay builder, player prop predictions, pick em app, DFS picks, fantasy sports picks">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://propedgeapp.com">
@@ -13,14 +13,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://propedgeapp.com">
 <meta property="og:title" content="PropEdge — AI Confidence Scores for Pick'em & Player Props">
-<meta property="og:description" content="8 AI agents score every NFL, NBA, MLB, and NHL player prop with simple confidence ratings. 57% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
+<meta property="og:description" content="8 AI agents score every NFL, NBA, MLB, NHL, EPL, and MLS player prop with simple confidence ratings. 57% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
 <meta property="og:site_name" content="PropEdge">
 <meta property="og:locale" content="en_US">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PropEdge — AI Confidence Scores for Pick'em & Player Props">
-<meta name="twitter:description" content="8 AI agents score every NFL, NBA, MLB, and NHL player prop with simple confidence ratings. 57% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
+<meta name="twitter:description" content="8 AI agents score every NFL, NBA, MLB, NHL, EPL, and MLS player prop with simple confidence ratings. 57% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
 
 <!-- Additional SEO -->
 <meta name="author" content="PropEdge">
@@ -45,7 +45,7 @@
   "name": "PropEdge",
   "applicationCategory": "SportsApplication",
   "operatingSystem": "iOS, Android",
-  "description": "AI-powered pick'em recommendation engine for Pick6, Underdog, PrizePicks, and FanDuel. 8 specialized agents analyze NFL, NBA, MLB, and NHL player props and deliver simple confidence scores — no betting jargon required.",
+  "description": "AI-powered pick'em recommendation engine for Pick6, Underdog, PrizePicks, and FanDuel. 8 specialized agents analyze NFL, NBA, MLB, NHL, EPL, and MLS player props and deliver simple confidence scores — no betting jargon required.",
   "offers": [
     {
       "@type": "Offer",
@@ -71,7 +71,7 @@
     "8-Agent AI Analysis Engine",
     "AI-Built Pick Combos with Risk Grading",
     "Self-Learning Weight Optimization",
-    "NFL, NBA, MLB, and NHL Player Props",
+    "NFL, NBA, MLB, NHL, EPL, and MLS Player Props",
     "Works with Pick6, Underdog, PrizePicks, and FanDuel"
   ]
 }
@@ -102,7 +102,7 @@
       "name": "What sports does PropEdge cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PropEdge currently covers NFL, NBA, MLB, and NHL player props with full analysis from 8 AI agents. It works with all major pick'em platforms including Pick6, Underdog Fantasy, PrizePicks, and FanDuel."
+        "text": "PropEdge currently covers NFL, NBA, MLB, NHL, EPL, and MLS player props with full analysis from 8 AI agents. It works with all major pick'em platforms including Pick6, Underdog Fantasy, PrizePicks, and FanDuel."
       }
     },
     {
@@ -110,7 +110,7 @@
       "name": "Where does the 57% win rate come from?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The 57% win rate is based on over 4,000 graded NFL, NBA, MLB, and NHL player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked."
+        "text": "The 57% win rate is based on over 6,000 graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked."
       }
     }
   ]
@@ -637,6 +637,37 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   .stat-divider { display: none; }
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; }
   .stat-value { font-size: 32px; }
+}
+
+/* ── League Logos ── */
+.league-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.league-logo {
+  width: 40px;
+  height: 40px;
+  opacity: 0.45;
+  transition: opacity 0.3s, transform 0.3s;
+  filter: grayscale(100%) brightness(1.8);
+}
+
+.league-logo:hover {
+  opacity: 0.9;
+  transform: scale(1.12);
+  filter: grayscale(0%) brightness(1);
+}
+
+@media (max-width: 639px) {
+  .league-logos { gap: 24px; }
+  .league-logo { width: 32px; height: 32px; }
 }
 
 /* ──────────── PLATFORMS ──────────── */
@@ -1254,7 +1285,7 @@ footer {
     <div class="hero-content">
       <div class="hero-text fade-in">
         <h1>Your Picks.<br><span>Clear as a number.</span></h1>
-        <p>No odds. No jargon. Just simple confidence scores powered by 8 AI agents. Open the app, see the top picks for Pick6, Underdog, PrizePicks, or FanDuel — and know exactly why each one is strong. 57% verified win rate across 4,000+ graded picks.</p>
+        <p>No odds. No jargon. Just simple confidence scores powered by 8 AI agents. Open the app, see the top picks for Pick6, Underdog, PrizePicks, or FanDuel — and know exactly why each one is strong. 57% verified win rate across 6,000+ graded picks.</p>
         <div class="hero-buttons">
           <a href="#pricing" class="store-badge" aria-label="Download on the App Store">
             <svg viewBox="0 0 120 40" width="150" height="50" xmlns="http://www.w3.org/2000/svg">
@@ -1324,7 +1355,7 @@ footer {
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
-        <div class="stat-value" data-count-to="4000" data-suffix="+" data-separator=",">0+</div>
+        <div class="stat-value" data-count-to="6000" data-suffix="+" data-separator=",">0+</div>
         <div class="stat-label">Props Analyzed</div>
       </div>
       <div class="stat-divider"></div>
@@ -1334,11 +1365,54 @@ footer {
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
-        <div class="stat-value" data-count-to="4">0</div>
+        <div class="stat-value" data-count-to="6">0</div>
         <div class="stat-label">Sports</div>
       </div>
     </div>
-    <p style="text-align:center;font-size:11px;color:var(--text-tertiary);opacity:0.6;margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;">Based on 4,000+ graded NFL, NBA, MLB, and NHL player prop legs from the 2025 and 2026 seasons. Past performance does not guarantee future results.</p>
+    <p style="text-align:center;font-size:11px;color:var(--text-tertiary);opacity:0.6;margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;">Based on 6,000+ graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Past performance does not guarantee future results.</p>
+
+    <!-- League Logos -->
+    <div class="league-logos fade-in">
+      <!-- NFL -->
+      <svg class="league-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="NFL">
+        <ellipse cx="50" cy="50" rx="42" ry="28" fill="#013369" stroke="#fff" stroke-width="3"/>
+        <path d="M25 50 Q50 25 75 50 Q50 75 25 50Z" fill="#D50A0A" opacity="0.9"/>
+        <text x="50" y="56" text-anchor="middle" fill="#fff" font-size="20" font-weight="900" font-family="Inter,sans-serif">NFL</text>
+      </svg>
+      <!-- NBA -->
+      <svg class="league-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="NBA">
+        <rect x="8" y="15" width="84" height="70" rx="8" fill="#1D428A"/>
+        <circle cx="55" cy="50" r="20" fill="none" stroke="#fff" stroke-width="3"/>
+        <line x1="35" y1="20" x2="35" y2="80" stroke="#C8102E" stroke-width="4"/>
+        <text x="50" y="56" text-anchor="middle" fill="#fff" font-size="18" font-weight="900" font-family="Inter,sans-serif">NBA</text>
+      </svg>
+      <!-- MLB -->
+      <svg class="league-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="MLB">
+        <circle cx="50" cy="50" r="42" fill="#002D72"/>
+        <path d="M30 65 Q50 20 70 65" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="50" cy="38" r="6" fill="#E4002B"/>
+        <text x="50" y="82" text-anchor="middle" fill="#fff" font-size="16" font-weight="900" font-family="Inter,sans-serif">MLB</text>
+      </svg>
+      <!-- NHL -->
+      <svg class="league-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="NHL">
+        <rect x="8" y="10" width="84" height="80" rx="6" fill="#000" stroke="#fff" stroke-width="3"/>
+        <text x="50" y="58" text-anchor="middle" fill="#fff" font-size="24" font-weight="900" font-family="Inter,sans-serif">NHL</text>
+        <line x1="15" y1="72" x2="85" y2="72" stroke="#F97316" stroke-width="3"/>
+      </svg>
+      <!-- EPL -->
+      <svg class="league-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Premier League">
+        <circle cx="50" cy="50" r="42" fill="#3D195B"/>
+        <circle cx="50" cy="38" r="12" fill="none" stroke="#fff" stroke-width="2.5"/>
+        <path d="M38 55 L50 70 L62 55" fill="none" stroke="#E90052" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="50" y="92" text-anchor="middle" fill="#fff" font-size="13" font-weight="800" font-family="Inter,sans-serif">EPL</text>
+      </svg>
+      <!-- MLS -->
+      <svg class="league-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="MLS">
+        <circle cx="50" cy="50" r="42" fill="#1A1A1A" stroke="#D2AA4B" stroke-width="3"/>
+        <path d="M35 60 L50 30 L65 60Z" fill="none" stroke="#D2AA4B" stroke-width="3" stroke-linejoin="round"/>
+        <text x="50" y="82" text-anchor="middle" fill="#D2AA4B" font-size="16" font-weight="900" font-family="Inter,sans-serif">MLS</text>
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -1560,7 +1634,7 @@ footer {
           What sports does PropEdge cover?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer"><p>PropEdge covers NFL, NBA, MLB, and NHL. Every game day, our engine analyzes hundreds of player props across all four leagues and ranks them by confidence.</p></div>
+        <div class="faq-answer"><p>PropEdge covers NFL, NBA, MLB, NHL, EPL, and MLS. Every game day, our engine analyzes hundreds of player props across all six leagues and ranks them by confidence.</p></div>
       </div>
       <div class="faq-item fade-in" style="transition-delay:0.05s">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open');const a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
@@ -1602,7 +1676,7 @@ footer {
           Where does the 57% win rate come from?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer"><p>That's our verified hit rate across over 4,000 graded NFL, NBA, MLB, and NHL player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked — no cherry-picking.</p></div>
+        <div class="faq-answer"><p>That's our verified hit rate across over 6,000 graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked — no cherry-picking.</p></div>
       </div>
     </div>
   </div>
