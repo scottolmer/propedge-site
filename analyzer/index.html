@@ -2183,6 +2183,17 @@ function renderPicks(picks) {
     }
   });
 
+  // Hide results until user searches
+  if (!searchQuery) {
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    controls.style.display = 'none';
+    meta.innerHTML = allPicks.length > 0
+      ? `<span style="color:var(--text-tertiary)">${allPicks.length} ${sportCfg.label} props available today — start typing to search</span>`
+      : `<span style="color:var(--text-tertiary)">No ${sportCfg.label} games scheduled today</span>`;
+    return;
+  }
+
   if (picks.length === 0) {
     const isSearch = searchQuery.length > 0;
     const msg = isSearch
