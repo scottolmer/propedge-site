@@ -14,6 +14,9 @@
 <meta property="og:url" content="https://propedgeapp.com">
 <meta property="og:title" content="PropEdge — AI Confidence Scores for Pick'em & Player Props">
 <meta property="og:description" content="8 AI agents score every NFL, NBA, MLB, NHL, EPL, and MLS player prop with simple confidence ratings. 57% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
+<meta property="og:image" content="https://propedgeapp.com/images/og-image.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="500">
 <meta property="og:site_name" content="PropEdge">
 <meta property="og:locale" content="en_US">
 
@@ -21,6 +24,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PropEdge — AI Confidence Scores for Pick'em & Player Props">
 <meta name="twitter:description" content="8 AI agents score every NFL, NBA, MLB, NHL, EPL, and MLS player prop with simple confidence ratings. 57% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
+<meta name="twitter:image" content="https://propedgeapp.com/images/og-image.png">
+<meta name="twitter:site" content="@prop_edge_app">
+<meta name="twitter:creator" content="@prop_edge_app">
 
 <!-- Additional SEO -->
 <meta name="author" content="PropEdge">
@@ -36,7 +42,9 @@
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23000'/><path d='M90 30L150 90L90 150L30 90Z' fill='%23F97316'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,800,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
@@ -116,13 +124,14 @@
   ]
 }
 </script>
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.344.0"></script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #000000;
-  --card: #111111;
+  --bg: #06080D;
+  --bg-deep: #040609;
+  --card: #0E1117;
   --accent: #F97316;
   --accent-glow: rgba(249, 115, 22, 0.30);
   --accent-muted: rgba(249, 115, 22, 0.12);
@@ -134,17 +143,88 @@
   --gold: #F59E0B;
   --glass-border: rgba(255, 255, 255, 0.06);
   --glass-border-active: rgba(249, 115, 22, 0.35);
+  --font-display: 'Satoshi', 'Inter', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text-secondary);
   line-height: 1.5;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* ── Atmospheric Background Layer ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(249, 115, 22, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 85% 75%, rgba(59, 130, 246, 0.03) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 70% at 50% 50%, rgba(249, 115, 22, 0.02) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 30%, #080B12 60%, var(--bg-deep) 100%);
+  pointer-events: none;
+}
+
+/* Floating gradient orbs — real DOM elements with blur */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  will-change: transform;
+}
+
+.bg-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: rgba(249, 115, 22, 0.07);
+  top: 10%;
+  left: 10%;
+}
+
+.bg-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(59, 130, 246, 0.05);
+  top: 50%;
+  right: 5%;
+}
+
+.bg-orb-3 {
+  width: 450px;
+  height: 450px;
+  background: rgba(245, 158, 11, 0.045);
+  bottom: 10%;
+  left: 30%;
+}
+
+/* Global grain texture — adds tactile feel everywhere */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
 }
 
 .container {
@@ -154,6 +234,7 @@ body {
 }
 
 h1, h2, h3, h4 {
+  font-family: var(--font-display);
   color: var(--text-primary);
   font-weight: 800;
   letter-spacing: -1px;
@@ -185,9 +266,9 @@ h1, h2, h3, h4 {
   gap: 8px;
   padding: 14px 28px;
   border-radius: 12px;
-  font-family: inherit;
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -212,7 +293,7 @@ h1, h2, h3, h4 {
 
 .btn-secondary:hover { border-color: var(--glass-border-active); }
 
-/* Fade-in animation */
+/* Fade-in animation with stagger support */
 .fade-in {
   opacity: 0;
   transform: translateY(24px);
@@ -224,6 +305,10 @@ h1, h2, h3, h4 {
   transform: translateY(0);
 }
 
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+
 /* ──────────── NAV ──────────── */
 nav {
   position: fixed;
@@ -232,8 +317,8 @@ nav {
   right: 0;
   z-index: 100;
   padding: 16px 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(16px);
+  background: rgba(6, 8, 13, 0.85);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
 }
 
@@ -244,6 +329,7 @@ nav .container {
 }
 
 .logo {
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 800;
   color: var(--text-primary);
@@ -295,8 +381,8 @@ nav .container {
     left: 0;
     right: 0;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(16px);
+    background: rgba(6, 8, 13, 0.96);
+    backdrop-filter: blur(20px);
     padding: 16px 24px;
     gap: 16px;
     border-bottom: 1px solid var(--glass-border);
@@ -312,18 +398,40 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 .hero {
   padding: 160px 0 60px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radial glow behind hero — more dramatic against rich bg */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160%;
+  height: 90%;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 35%, rgba(249, 115, 22, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 40% at 40% 60%, rgba(59, 130, 246, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 60% 30%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
-  font-size: clamp(40px, 6vw, 64px);
+  font-size: clamp(40px, 6vw, 68px);
   line-height: 1.05;
   margin-bottom: 20px;
+  letter-spacing: -2px;
 }
 
 .hero h1 span { color: var(--accent); }
@@ -332,9 +440,9 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   font-size: 18px;
   max-width: 520px;
   margin-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.hero p { margin-left: auto; margin-right: auto; }
 
 .hero-buttons {
   display: flex;
@@ -379,6 +487,84 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   white-space: nowrap;
 }
 
+/* ── Android Waitlist ── */
+.android-waitlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.waitlist-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.waitlist-form input {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  width: 220px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.waitlist-form input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.waitlist-form input:focus {
+  border-color: var(--accent);
+}
+
+.waitlist-form button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.waitlist-form button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.android-waitlist .waitlist-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.android-waitlist .waitlist-label svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+}
+
+.waitlist-success {
+  display: none;
+  color: var(--success);
+  font-size: 14px;
+  font-weight: 600;
+  gap: 6px;
+  align-items: center;
+}
+
 /* ── Screenshots Carousel ── */
 .screenshots {
   padding: 40px 0 60px;
@@ -401,6 +587,12 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 .screenshot-phone {
   flex-shrink: 0;
   width: calc((100% - 80px) / 5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.screenshot-frame {
   aspect-ratio: 9 / 19.5;
   border-radius: 28px;
   overflow: hidden;
@@ -409,17 +601,26 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.screenshot-phone:hover {
+.screenshot-frame:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 24px var(--accent-glow);
 }
 
-.screenshot-phone img {
+.screenshot-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
+}
+
+.screenshot-caption {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-align: center;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .carousel-controls {
@@ -481,6 +682,8 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 @media (max-width: 768px) {
   .screenshot-phone {
     width: calc((100% - 40px) / 3);
+  }
+  .screenshot-frame {
     border-radius: 20px;
   }
 }
@@ -488,6 +691,8 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 @media (max-width: 480px) {
   .screenshot-phone {
     width: calc((100% - 20px) / 2);
+  }
+  .screenshot-frame {
     border-radius: 16px;
   }
 }
@@ -594,7 +799,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 
 /* ──────────── STATS BAR ──────────── */
 .stats-bar {
-  padding: 60px 0;
+  padding: 80px 0;
   border-top: 1px solid var(--glass-border);
   border-bottom: 1px solid var(--glass-border);
 }
@@ -610,7 +815,8 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 .stat-item { text-align: center; }
 
 .stat-value {
-  font-size: 40px;
+  font-family: var(--font-mono);
+  font-size: 44px;
   font-weight: 800;
   color: var(--accent);
   letter-spacing: -1px;
@@ -620,7 +826,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 .stat-label {
   font-size: 13px;
   color: var(--text-tertiary);
-  margin-top: 6px;
+  margin-top: 8px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -636,17 +842,20 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   .stats-grid { gap: 24px; }
   .stat-divider { display: none; }
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; }
-  .stat-value { font-size: 32px; }
+  .stat-value { font-size: 36px; }
 }
 
 .league-logos-title {
   text-align: center;
+  font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -1px;
-  margin-top: 32px;
+  margin-top: 48px;
   margin-bottom: 8px;
+  padding-top: 28px;
+  border-top: 1px solid var(--glass-border);
 }
 
 /* ── League Logos ── */
@@ -657,8 +866,6 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   gap: 36px;
   flex-wrap: wrap;
   margin-top: 36px;
-  padding-top: 28px;
-  border-top: 1px solid var(--glass-border);
 }
 
 .league-logo-item {
@@ -705,6 +912,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 
 .platforms-label {
   text-align: center;
+  font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 800;
   color: var(--text-primary);
@@ -759,6 +967,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 }
 
 .section-title {
+  font-family: var(--font-display);
   text-align: center;
   font-size: clamp(28px, 4vw, 40px);
   margin-bottom: 56px;
@@ -772,10 +981,88 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 
 @media (min-width: 640px) {
   .features-grid { grid-template-columns: 1fr 1fr; }
+  .features-grid .feature-hero { grid-column: 1 / -1; }
 }
 
 .feature-card {
   padding: 32px;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.feature-card:hover {
+  border-color: var(--glass-border-active);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-3px);
+}
+
+/* Hero feature card — full width with side-by-side layout */
+.feature-hero {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  padding: 40px;
+  border-color: var(--glass-border-active);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.feature-hero .feature-text { flex: 1; }
+
+.feature-hero-visual {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.confidence-demo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 24px var(--accent-glow);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 24px var(--accent-glow); }
+  50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 60px rgba(249, 115, 22, 0.1); }
+}
+
+.confidence-demo .conf-number {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.confidence-demo .conf-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.feature-hero-visual .demo-caption {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+@media (max-width: 639px) {
+  .feature-hero {
+    flex-direction: column-reverse;
+    padding: 32px;
+    text-align: center;
+  }
+  .feature-hero-visual { flex: 0 0 auto; }
 }
 
 .feature-icon {
@@ -830,6 +1117,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-mono);
   font-size: 20px;
   font-weight: 800;
   color: var(--accent);
@@ -850,8 +1138,22 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
     top: 56px;
     right: -12px;
     width: 24px;
-    height: 2px;
-    background: rgba(249, 115, 22, 0.3);
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), rgba(249, 115, 22, 0.2));
+    border-radius: 2px;
+  }
+  /* Arrow tip */
+  .step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: 52px;
+    right: -14px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid rgba(249, 115, 22, 0.3);
+    z-index: 1;
   }
 }
 
@@ -866,6 +1168,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   gap: 24px;
   max-width: 800px;
   margin: 0 auto;
+  align-items: center;
 }
 
 @media (min-width: 640px) {
@@ -878,6 +1181,27 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Dim the free card */
+.pricing-card-free {
+  opacity: 0.82;
+}
+
+.pricing-card-free:hover {
+  opacity: 1;
+}
+
+/* Scale up the pro card */
+@media (min-width: 640px) {
+  .pricing-card-pro {
+    transform: scale(1.05);
+    z-index: 2;
+  }
+  .pricing-card-pro:hover {
+    transform: scale(1.07);
+  }
 }
 
 .pricing-card .label { margin-bottom: 8px; font-size: 13px; }
@@ -892,6 +1216,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 }
 
 .pricing-price .amount {
+  font-family: var(--font-display);
   font-size: 36px;
   font-weight: 800;
   color: var(--text-primary);
@@ -948,6 +1273,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   transform: translateX(-50%);
   background: var(--accent);
   color: #000;
+  font-family: var(--font-display);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.5px;
@@ -1018,6 +1344,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 }
 
 .compare-col-name {
+  font-family: var(--font-display);
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.5px;
@@ -1056,15 +1383,15 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
 }
 
 .compare-check {
-  color: var(--accent);
+  color: var(--success);
   font-size: 18px;
   font-weight: 700;
 }
 
 .compare-x {
-  color: var(--text-tertiary);
+  color: var(--danger);
   font-size: 16px;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .compare-partial {
@@ -1108,7 +1435,7 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
@@ -1283,9 +1610,190 @@ footer {
   margin-left: 4px;
   vertical-align: middle;
 }
+
+/* ──────────── STICKY MOBILE CTA ──────────── */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 12px 16px;
+  background: rgba(6, 8, 13, 0.94);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--glass-border-active);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.sticky-cta.show {
+  transform: translateY(0);
+}
+
+.sticky-cta-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-cta-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sticky-cta-sub {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.sticky-cta .btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .sticky-cta { display: flex; }
+}
+
+/* ──────────── CONTACT MODAL ──────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(4, 6, 9, 0.75);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--card);
+  border: 1px solid var(--glass-border-active);
+  border-radius: 20px;
+  padding: 36px 32px;
+  width: 90%;
+  max-width: 440px;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 40px var(--accent-glow);
+}
+
+.modal-overlay.open .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.modal-close:hover { color: var(--text-primary); }
+
+.modal h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.modal .modal-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+}
+
+.contact-form textarea {
+  min-height: 100px;
+}
+
+.contact-form .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-success {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.contact-success svg {
+  color: var(--success);
+  margin-bottom: 12px;
+}
+
+.contact-success p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.contact-success h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
 </style>
 </head>
 <body>
+<div class="bg-orbs" aria-hidden="true">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+</div>
+<div class="grain-overlay" aria-hidden="true"></div>
 
 <!-- Nav -->
 <nav>
@@ -1310,10 +1818,10 @@ footer {
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-text fade-in">
-        <h1>Your Picks.<br><span>Clear as a number.</span></h1>
-        <p>No odds. No jargon. Just simple confidence scores powered by 8 AI agents. Open the app, see the top picks for Pick6, Underdog, PrizePicks, or FanDuel — and know exactly why each one is strong. 57% verified win rate across 6,000+ graded picks.</p>
-        <div class="hero-buttons">
+      <div class="hero-text">
+        <h1 class="fade-in">Your Picks.<br><span>Clear as a number.</span></h1>
+        <p class="fade-in delay-1">No odds. No jargon. Just simple confidence scores powered by 8 AI agents. Open the app, see the top picks for Pick6, Underdog, PrizePicks, or FanDuel — and know exactly why each one is strong. 57% verified win rate across 6,000+ graded picks.</p>
+        <div class="hero-buttons fade-in delay-2">
           <a href="#pricing" class="store-badge" aria-label="Download on the App Store">
             <svg viewBox="0 0 120 40" width="150" height="50" xmlns="http://www.w3.org/2000/svg">
               <rect width="120" height="40" rx="6" fill="#000" stroke="#A6A6A6" stroke-width="0.8"/>
@@ -1339,6 +1847,21 @@ footer {
             </a>
           </span>
         </div>
+        <!-- Android Waitlist -->
+        <div class="android-waitlist fade-in delay-3">
+          <div class="waitlist-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            Android coming soon — get notified at launch
+          </div>
+          <form class="waitlist-form" id="waitlistForm" onsubmit="return handleWaitlist(event)">
+            <input type="email" placeholder="your@email.com" required aria-label="Email for Android waitlist">
+            <button type="submit">Notify Me</button>
+          </form>
+          <div class="waitlist-success" id="waitlistSuccess">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            You're on the list!
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1348,15 +1871,42 @@ footer {
 <section class="screenshots fade-in">
   <div class="screenshots-window">
     <div class="screenshots-track" id="carouselTrack">
-      <div class="screenshot-phone"><img src="images/01.png" alt="PropEdge app screenshot 1" loading="eager"></div>
-      <div class="screenshot-phone"><img src="images/02.png" alt="PropEdge app screenshot 2" loading="eager"></div>
-      <div class="screenshot-phone"><img src="images/03.png" alt="PropEdge app screenshot 3" loading="eager"></div>
-      <div class="screenshot-phone"><img src="images/04.png" alt="PropEdge app screenshot 4" loading="eager"></div>
-      <div class="screenshot-phone"><img src="images/05.png" alt="PropEdge app screenshot 5" loading="eager"></div>
-      <div class="screenshot-phone"><img src="images/06.png" alt="PropEdge app screenshot 6" loading="lazy"></div>
-      <div class="screenshot-phone"><img src="images/07.png" alt="PropEdge app screenshot 7" loading="lazy"></div>
-      <div class="screenshot-phone"><img src="images/08.png" alt="PropEdge app screenshot 8" loading="lazy"></div>
-      <div class="screenshot-phone"><img src="images/09.png" alt="PropEdge app screenshot 9" loading="lazy"></div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/01.png" alt="PropEdge top picks screen" loading="eager"></div>
+        <span class="screenshot-caption">Top Picks</span>
+      </div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/02.png" alt="PropEdge confidence score" loading="eager"></div>
+        <span class="screenshot-caption">Confidence Score</span>
+      </div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/03.png" alt="PropEdge agent breakdown" loading="eager"></div>
+        <span class="screenshot-caption">Agent Breakdown</span>
+      </div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/04.png" alt="PropEdge AI parlays" loading="eager"></div>
+        <span class="screenshot-caption">AI Parlays</span>
+      </div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/05.png" alt="PropEdge odds comparison" loading="eager"></div>
+        <span class="screenshot-caption">Best Odds</span>
+      </div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/06.png" alt="PropEdge performance dashboard" loading="lazy"></div>
+        <span class="screenshot-caption">Performance</span>
+      </div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/07.png" alt="PropEdge edge finder" loading="lazy"></div>
+        <span class="screenshot-caption">Edge Finder</span>
+      </div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/08.png" alt="PropEdge schedule" loading="lazy"></div>
+        <span class="screenshot-caption">Game Schedule</span>
+      </div>
+      <div class="screenshot-phone">
+        <div class="screenshot-frame"><img src="images/09.png" alt="PropEdge settings" loading="lazy"></div>
+        <span class="screenshot-caption">Settings</span>
+      </div>
     </div>
   </div>
   <div class="carousel-controls">
@@ -1498,10 +2048,20 @@ footer {
     <p class="label section-label fade-in">Features</p>
     <h2 class="section-title fade-in">Built for Pick'em Players Who Want an Edge</h2>
     <div class="features-grid">
-      <div class="card feature-card fade-in">
-        <div class="feature-icon"><i data-lucide="brain" width="24" height="24"></i></div>
-        <h3>One Confidence Score. Eight Reasons Why.</h3>
-        <p>Every prop runs through 8 specialized AI agents — Injury, Matchup, DVOA, Volume, Pace, and more. You see one clear confidence score. Tap for the full breakdown of why each agent agrees or disagrees. No spreadsheets, no formulas — just a number you can trust.</p>
+      <!-- Hero feature — full width with visual -->
+      <div class="card feature-card feature-hero fade-in">
+        <div class="feature-text">
+          <div class="feature-icon"><i data-lucide="brain" width="24" height="24"></i></div>
+          <h3>One Confidence Score. Eight Reasons Why.</h3>
+          <p>Every prop runs through 8 specialized AI agents — Injury, Matchup, DVOA, Volume, Pace, and more. You see one clear confidence score. Tap for the full breakdown of why each agent agrees or disagrees. No spreadsheets, no formulas — just a number you can trust.</p>
+        </div>
+        <div class="feature-hero-visual">
+          <div class="confidence-demo">
+            <span class="conf-number">72</span>
+            <span class="conf-label">Confidence</span>
+          </div>
+          <span class="demo-caption">Clear. Instant. Actionable.</span>
+        </div>
       </div>
       <div class="card feature-card fade-in" style="transition-delay:0.1s">
         <div class="feature-icon"><i data-lucide="layers" width="24" height="24"></i></div>
@@ -1513,7 +2073,12 @@ footer {
         <h3>Best Odds, Instantly</h3>
         <p>See real-time odds from every major sportsbook side by side. One tap shows you the best available line for any prop — so you always get the most value on every pick.</p>
       </div>
-      <div class="card feature-card card-glow fade-in" style="transition-delay:0.3s">
+      <div class="card feature-card fade-in" style="transition-delay:0.3s">
+        <div class="feature-icon"><i data-lucide="puzzle" width="24" height="24"></i></div>
+        <h3>Build & Score Your Own Parlays</h3>
+        <p>Have a combo in mind? Build your own custom parlay and let our AI engine score it instantly. See the combined confidence, correlation risk between legs, and whether the math actually supports the play — before you lock it in.</p>
+      </div>
+      <div class="card feature-card card-glow fade-in" style="transition-delay:0.4s">
         <div class="feature-icon"><i data-lucide="refresh-cw" width="24" height="24"></i></div>
         <h3>Self-Learning Engine</h3>
         <p>Every week, our system backtests every prediction against real results and automatically adjusts agent weights to maximize win rate. The engine literally gets smarter with every game played — no manual tuning, no stale models.</p>
@@ -1533,12 +2098,12 @@ footer {
         <h3>Open</h3>
         <p>See today's highest-confidence props ranked by our engine. Sorted by confidence — the best picks are always at the top.</p>
       </div>
-      <div class="card step fade-in" style="transition-delay:0.1s">
+      <div class="card step fade-in" style="transition-delay:0.15s">
         <div class="step-number">2</div>
         <h3>Tap</h3>
         <p>Tap any prop to see the full breakdown — which agents agree, what's driving the score, and how confident the engine is.</p>
       </div>
-      <div class="card step fade-in" style="transition-delay:0.2s">
+      <div class="card step fade-in" style="transition-delay:0.3s">
         <div class="step-number">3</div>
         <h3>Play</h3>
         <p>Take your picks to Pick6, Underdog, PrizePicks, or FanDuel. Track your record and let the engine learn what works for you.</p>
@@ -1553,7 +2118,7 @@ footer {
     <p class="label section-label fade-in">Pricing</p>
     <h2 class="section-title fade-in">Pick Your Plan</h2>
     <div class="pricing-grid">
-      <div class="card pricing-card fade-in">
+      <div class="card pricing-card pricing-card-free fade-in">
         <p class="label">Free</p>
         <h3>Starter</h3>
         <div class="pricing-price">
@@ -1566,7 +2131,7 @@ footer {
         </ul>
         <a href="#" class="btn btn-secondary">Get Started</a>
       </div>
-      <div class="card card-glow pricing-card fade-in" style="transition-delay:0.1s">
+      <div class="card card-glow pricing-card pricing-card-pro fade-in" style="transition-delay:0.1s">
         <div class="trial-banner">7 Days Free</div>
         <p class="label" style="color:var(--accent);">Premium</p>
         <h3>PropEdge Pro</h3>
@@ -1772,8 +2337,13 @@ footer {
   <div class="container">
     <div class="footer-content">
       <div class="footer-links">
+        <a href="https://x.com/prop_edge_app" target="_blank" rel="noopener" aria-label="Follow PropEdge on X" style="display:inline-flex;align-items:center;gap:6px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @prop_edge_app
+        </a>
         <a href="https://www.notion.so/Privacy-Policy-31ce79c608ef8074a5a7db819d6ebf80" target="_blank" rel="noopener">Privacy Policy</a>
         <a href="https://www.notion.so/Terms-of-Service-31ce79c608ef8094baece5095cd2d523" target="_blank" rel="noopener">Terms of Service</a>
+        <a href="#" onclick="event.preventDefault();document.getElementById('contactModal').classList.add('open')">Contact Us</a>
       </div>
       <p class="footer-copy">&copy; 2026 PropEdge. All rights reserved.</p>
 
@@ -1811,9 +2381,55 @@ footer {
   </div>
 </footer>
 
+<!-- Contact Modal -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3>Contact Us</h3>
+    <p class="modal-sub">Questions, feedback, or partnership inquiries — we'd love to hear from you.</p>
+    <form class="contact-form" id="contactForm" onsubmit="return handleContact(event)">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message..." required></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+    <div class="contact-success" id="contactSuccess">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <h4>Message Sent</h4>
+      <p>Thanks for reaching out! We'll get back to you soon.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text">
+    <span class="sticky-cta-title">PropEdge</span>
+    <span class="sticky-cta-sub">Free · 57% Win Rate</span>
+  </div>
+  <a href="#pricing" class="btn btn-primary">Download Free</a>
+</div>
+
 <script>
 // Initialize Lucide icons
 lucide.createIcons();
+
+// Animated background orbs — drift real DOM elements with transforms
+(function() {
+  const orbs = document.querySelectorAll('.bg-orb');
+  if (!orbs.length) return;
+  let t = 0;
+  function drift() {
+    t += 0.0015;
+    orbs[0].style.transform = 'translate(' + (Math.sin(t * 0.7) * 80) + 'px,' + (Math.cos(t * 0.5) * 60) + 'px)';
+    orbs[1].style.transform = 'translate(' + (Math.sin(t * 0.4 + 2) * 70) + 'px,' + (Math.cos(t * 0.6 + 1) * 80) + 'px)';
+    orbs[2].style.transform = 'translate(' + (Math.sin(t * 0.3 + 4) * 60) + 'px,' + (Math.cos(t * 0.5 + 3) * 50) + 'px)';
+    requestAnimationFrame(drift);
+  }
+  requestAnimationFrame(drift);
+})();
 
 // Scroll-triggered fade-in animations
 const observer = new IntersectionObserver((entries) => {
@@ -1840,7 +2456,7 @@ function animateCounters() {
       const suffix = el.dataset.suffix || '';
       const decimals = parseInt(el.dataset.decimals) || 0;
       const useSep = el.dataset.separator === ',';
-      const duration = 1200;
+      const duration = 1400;
       const start = performance.now();
 
       function update(now) {
@@ -1929,6 +2545,75 @@ animateCounters();
   dots.forEach(d => d.addEventListener('click', resetAuto));
   track.addEventListener('touchend', resetAuto);
 })();
+
+// Sticky mobile CTA — show after scrolling past hero
+(function() {
+  const stickyCta = document.getElementById('stickyCta');
+  const hero = document.querySelector('.hero');
+  if (!stickyCta || !hero) return;
+
+  const stickyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        stickyCta.classList.remove('show');
+      } else {
+        stickyCta.classList.add('show');
+      }
+    });
+  }, { threshold: 0 });
+
+  stickyObserver.observe(hero);
+})();
+
+// Contact form handler — submits to Google Forms
+function handleContact(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('contactSuccess');
+  const name = form.querySelector('[name="name"]').value;
+  const email = form.querySelector('[name="email"]').value;
+  const message = form.querySelector('[name="message"]').value;
+
+  const gformUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfn5znQWKxsPSmPm-lr9Ycq6745sPXKmgVCTYKVeZWao7N5fg/formResponse';
+  const formData = new URLSearchParams();
+  formData.append('entry.1370384861', name);
+  formData.append('entry.1296066178', email);
+  formData.append('entry.814914312', message);
+
+  fetch(gformUrl, {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors',
+  }).finally(() => {
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
+
+  return false;
+}
+
+// Android waitlist form handler — submits to Google Forms
+function handleWaitlist(e) {
+  e.preventDefault();
+  const form = document.getElementById('waitlistForm');
+  const success = document.getElementById('waitlistSuccess');
+  const email = form.querySelector('input[type="email"]').value;
+
+  const gformUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe9tRO7FBhLEiz3AfS-e5akGIaDLj1RY4SrAJ-5oeXZxZHXwg/formResponse';
+  const formData = new URLSearchParams();
+  formData.append('entry.227649005', email);
+
+  fetch(gformUrl, {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors',
+  }).finally(() => {
+    form.style.display = 'none';
+    success.style.display = 'flex';
+  });
+
+  return false;
+}
 </script>
 </body>
 </html>
