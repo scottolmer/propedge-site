@@ -1820,7 +1820,7 @@ footer {
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="fade-in">Your Picks.<br><span>Clear as a number.</span></h1>
-        <p class="fade-in delay-1">No odds. No jargon. Just simple confidence scores powered by 8 AI agents. Open the app, see the top picks for Pick6, Underdog, PrizePicks, or FanDuel — and know exactly why each one is strong. 57% verified win rate across 6,000+ graded picks.</p>
+        <p class="fade-in delay-1">No odds. No jargon. Just simple confidence scores powered by 8 AI agents. Open the app, see the top picks for Pick6, Underdog, PrizePicks, or FanDuel — and know exactly why each one is strong. 57% verified win rate across <span class="graded-count">6,000+</span> graded picks.</p>
         <div class="hero-buttons fade-in delay-2">
           <a href="#pricing" class="store-badge" aria-label="Download on the App Store">
             <svg viewBox="0 0 120 40" width="150" height="50" xmlns="http://www.w3.org/2000/svg">
@@ -1927,12 +1927,12 @@ footer {
   <div class="container">
     <div class="stats-grid fade-in">
       <div class="stat-item">
-        <div class="stat-value" data-count-to="57.2" data-suffix="%" data-decimals="1">0%</div>
+        <div class="stat-value" id="winrate-counter" data-count-to="57.2" data-suffix="%" data-decimals="1">0%</div>
         <div class="stat-label">Win Rate</div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
-        <div class="stat-value" data-count-to="6000" data-suffix="+" data-separator=",">0+</div>
+        <div class="stat-value" id="graded-counter" data-count-to="6000" data-suffix="+" data-separator=",">0+</div>
         <div class="stat-label">Props Analyzed</div>
       </div>
       <div class="stat-divider"></div>
@@ -1946,7 +1946,7 @@ footer {
         <div class="stat-label">Sports</div>
       </div>
     </div>
-    <p style="text-align:center;font-size:11px;color:var(--text-tertiary);opacity:0.6;margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;">Based on 6,000+ graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Past performance does not guarantee future results.</p>
+    <p style="text-align:center;font-size:11px;color:var(--text-tertiary);opacity:0.6;margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto;">Based on <span class="graded-count">6,000+</span> graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Past performance does not guarantee future results.</p>
 
     <!-- League Icons (same as mobile app sport selector) -->
     <p class="league-logos-title fade-in">Built for the sports you bet on</p>
@@ -2292,7 +2292,7 @@ footer {
           Where does the 57% win rate come from?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer"><p>That's our verified hit rate across over 6,000 graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked — no cherry-picking.</p></div>
+        <div class="faq-answer"><p>That's our verified hit rate across over <span class="graded-count">6,000+</span> graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked — no cherry-picking.</p></div>
       </div>
     </div>
   </div>
@@ -2441,6 +2441,41 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Fetch live graded count + win rate from API
+(function() {
+  fetch('https://web-production-3c1c4.up.railway.app/api/social/graded-count')
+    .then(r => r.json())
+    .then(data => {
+      if (!data || !data.total) return;
+
+      // Update the animated counter targets (before or after they fire)
+      const countEl = document.getElementById('graded-counter');
+      const winEl = document.getElementById('winrate-counter');
+
+      if (countEl) {
+        countEl.dataset.countTo = data.total.toString();
+        // If counter already fired, update displayed text directly
+        if (countEl.dataset.counted) {
+          countEl.textContent = data.total.toLocaleString() + '+';
+        }
+      }
+      if (winEl && data.win_rate) {
+        winEl.dataset.countTo = data.win_rate.toString();
+        if (winEl.dataset.counted) {
+          winEl.textContent = data.win_rate.toFixed(1) + '%';
+        }
+      }
+
+      // Update text mentions of the count (round down to nearest 1,000)
+      const rounded = Math.floor(data.total / 1000) * 1000;
+      const label = rounded.toLocaleString() + '+';
+      document.querySelectorAll('.graded-count').forEach(el => {
+        el.textContent = label;
+      });
+    })
+    .catch(() => { /* fallback: hardcoded values remain */ });
+})();
 
 // Animated counter for stats bar
 function animateCounters() {
