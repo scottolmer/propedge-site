@@ -781,33 +781,26 @@ nav .btn { padding: 10px 20px; font-size: 14px; }
   overflow: hidden;
 }
 
-.pick-card-locked {
-  pointer-events: none;
-  user-select: none;
-  position: relative;
+.pick-card-locked .pick-card-top,
+.pick-card-locked .pick-prop-row {
+  opacity: 0.7;
 }
-.pick-card-locked .pick-card-inner {
-  filter: blur(6px);
-  opacity: 0.4;
-}
-.pick-card-lock-overlay {
-  position: absolute;
-  inset: 0;
+.locked-section {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  padding: 14px 0 4px;
+  margin-top: 8px;
+  border-top: 1px solid var(--glass-border);
   color: var(--text-tertiary);
-  pointer-events: auto;
-  z-index: 2;
 }
 .lock-cta {
   font-size: 13px;
   font-weight: 700;
   color: var(--accent);
   text-decoration: none;
-  padding: 8px 18px;
+  padding: 6px 16px;
   border: 1px solid var(--accent);
   border-radius: 20px;
   transition: background 0.2s, color 0.2s;
@@ -2131,10 +2124,20 @@ function buildPickCard(prop, locked) {
   if (locked) {
     return `
       <article class="pick-card pick-card-locked">
-        <div class="pick-card-inner" aria-hidden="true">${inner}</div>
-        <div class="pick-card-lock-overlay">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <a href="/#pricing" class="lock-cta">Unlock in App</a>
+        <div class="pick-card-top">
+          <div class="pick-player-info">
+            <span class="pick-player-name">${escHtml(prop.player_name)}</span>
+            ${teamHtml}
+          </div>
+        </div>
+        <div class="pick-prop-row">
+          <span class="pick-stat-type">${statLabel}</span>
+          <span class="pick-line">${prop.line != null ? prop.line : '&mdash;'}</span>
+          <span class="pick-line-label">line</span>
+        </div>
+        <div class="locked-section">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <a href="/#pricing" class="lock-cta">Unlock Pick</a>
         </div>
       </article>
     `;
@@ -2201,10 +2204,7 @@ function renderPicks(picks) {
   }
 
   const sorted = sortPicks(picks);
-  const open = sorted.slice(0, 5);
-  const locked = sorted.slice(5, 8);
-  grid.innerHTML = open.map(p => buildPickCard(p, false)).join('')
-    + locked.map(p => buildPickCard(p, true)).join('');
+  grid.innerHTML = sorted.map((p, i) => buildPickCard(p, i >= 5)).join('');
 
   // Animate confidence bars in after paint
   requestAnimationFrame(() => {
@@ -2218,8 +2218,8 @@ function renderPicks(picks) {
   const shown = picks.length;
   const sport = sportCfg.label;
   meta.innerHTML = searchQuery
-    ? `Showing <strong>${Math.min(shown, 5)}</strong> of <strong>${total}</strong> ${sport} props matching "<strong>${escHtml(searchQuery)}</strong>"`
-    : `Showing <strong>${Math.min(shown, 5)}</strong> of <strong>${total}</strong> ${sport} props today — download the app for all picks`;
+    ? `${shown} ${sport} props matching "<strong>${escHtml(searchQuery)}</strong>" — ${Math.min(5, shown)} unlocked`
+    : `${shown} ${sport} props today — top 5 confidence scores unlocked`;
 
   controls.style.display = 'flex';
   grid.style.display = 'grid';
@@ -2269,7 +2269,7 @@ async function loadSport(sport) {
 
   const today = getETDate();
   try {
-    const res = await fetch(`${API_BASE}/${sport}?game_date=${today}&limit=8`, {
+    const res = await fetch(`${API_BASE}/${sport}?game_date=${today}&limit=100`, {
       signal: AbortSignal.timeout(10000)
     });
 
