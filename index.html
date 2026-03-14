@@ -14,7 +14,7 @@
   gtag('config', 'G-NLXM4C2G7D');
 </script>
 <title>PropEdge — AI Player Prop Picks & Confidence Scores</title>
-<meta name="description" content="8 AI agents score every NFL, NBA, NHL, MLB & soccer player prop. 57% verified win rate. Built for Pick6, Underdog, PrizePicks & FanDuel.">
+<meta name="description" content="8 AI agents score every NFL, NBA, NHL, MLB & soccer player prop. 59% verified win rate. Built for Pick6, Underdog, PrizePicks & FanDuel.">
 <meta name="keywords" content="pick em picks, Pick6 picks, Underdog Fantasy picks, PrizePicks picks, FanDuel picks, daily fantasy sports, NFL player props, NBA player props, MLB player props, NHL player props, AI prop picks, pick em prop analyzer, parlay builder, player prop predictions, pick em app, DFS picks, fantasy sports picks">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://propedgeapp.com">
@@ -23,7 +23,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://propedgeapp.com">
 <meta property="og:title" content="PropEdge — AI Confidence Scores for Pick'em & Player Props">
-<meta property="og:description" content="8 AI agents score every NFL, NBA, MLB, NHL, EPL, and MLS player prop with simple confidence ratings. 57% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
+<meta property="og:description" content="8 AI agents score every NFL, NBA, MLB, NHL, EPL, and MLS player prop with simple confidence ratings. 59% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
 <meta property="og:image" content="https://propedgeapp.com/images/og-image.png">
 <meta property="og:image:width" content="1500">
 <meta property="og:image:height" content="500">
@@ -33,7 +33,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PropEdge — AI Confidence Scores for Pick'em & Player Props">
-<meta name="twitter:description" content="8 AI agents score every NFL, NBA, MLB, NHL, EPL, and MLS player prop with simple confidence ratings. 57% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
+<meta name="twitter:description" content="8 AI agents score every NFL, NBA, MLB, NHL, EPL, and MLS player prop with simple confidence ratings. 59% win rate. Built for Pick6, Underdog, PrizePicks, and FanDuel — no jargon, just clear picks.">
 <meta name="twitter:image" content="https://propedgeapp.com/images/og-image.png">
 <meta name="twitter:site" content="@prop_edge_app">
 <meta name="twitter:creator" content="@prop_edge_app">
@@ -146,15 +146,15 @@
       "name": "What do you mean by self-learning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "After every week of games, our system grades every prediction against real player stats. It then backtests different agent weight configurations and automatically adjusts which agents get more or less influence. Agents that were accurate get promoted; agents that were wrong get demoted. This means the model continuously improves — our win rate went from 44% to 57% through this process."
+        "text": "After every week of games, our system grades every prediction against real player stats. It then backtests different agent weight configurations and automatically adjusts which agents get more or less influence. Agents that were accurate get promoted; agents that were wrong get demoted. This means the model continuously improves — our win rate went from 44% to 59% through this process."
       }
     },
     {
       "@type": "Question",
-      "name": "Where does the 57% win rate come from?",
+      "name": "Where does the 59% win rate come from?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "That's our verified hit rate across over 6,000 graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked — no cherry-picking."
+        "text": "That's our verified hit rate across over 17,000 graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked — no cherry-picking."
       }
     }
   ]
@@ -627,6 +627,103 @@ nav .btn { padding: 10px 20px; font-size: 14px; flex-shrink: 0; }
 }
 
 .hero h1 span { color: var(--accent); }
+
+/* ── Hero Proof Strip ── */
+.hero-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+  border-radius: 60px;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  background: rgba(249, 115, 22, 0.06);
+  padding: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle shimmer sweep */
+.hero-proof::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.08), transparent);
+  animation: proof-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes proof-shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+.hero-proof-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-proof-stat:first-child {
+  background: rgba(249, 115, 22, 0.12);
+  border-radius: 56px;
+}
+
+.hero-proof-number {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.hero-proof-stat:first-child .hero-proof-number {
+  font-size: 26px;
+  text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+}
+
+.hero-proof-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.hero-proof-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+@media (max-width: 639px) {
+  .hero-proof {
+    flex-direction: row;
+    gap: 0;
+  }
+  .hero-proof-stat {
+    padding: 8px 14px;
+  }
+  .hero-proof-number {
+    font-size: 18px;
+  }
+  .hero-proof-stat:first-child .hero-proof-number {
+    font-size: 22px;
+  }
+  .hero-proof-label {
+    font-size: 10px;
+  }
+}
 
 .hero p {
   font-size: 18px;
@@ -2161,8 +2258,19 @@ footer {
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="fade-in">Your Picks.<br><span>Clear as a number.</span></h1>
-        <p class="fade-in delay-1">No odds. No jargon. Just simple confidence scores powered by 8 AI agents. Open the app, see the top picks for Pick6, Underdog, PrizePicks, or FanDuel — and know exactly why each one is strong. 57% verified win rate across <span class="graded-count">6,000+</span> graded picks.</p>
-        <div class="hero-buttons fade-in delay-2">
+        <div class="hero-proof fade-in delay-1">
+          <div class="hero-proof-stat">
+            <span class="hero-proof-number" id="hero-winrate">59.8%</span>
+            <span class="hero-proof-label">Verified<br>Win Rate</span>
+          </div>
+          <span class="hero-proof-dot"></span>
+          <div class="hero-proof-stat">
+            <span class="hero-proof-number" id="hero-total">17,000+</span>
+            <span class="hero-proof-label">Props<br>Graded</span>
+          </div>
+        </div>
+        <p class="fade-in delay-2">No odds. No jargon. Just simple confidence scores powered by 8 AI agents. Open the app, see the top picks for Pick6, Underdog, PrizePicks, or FanDuel — and know exactly why each one is strong.</p>
+        <div class="hero-buttons fade-in delay-3">
           <a href="#pricing" class="store-badge" aria-label="Download on the App Store">
             <svg viewBox="0 0 120 40" width="150" height="50" xmlns="http://www.w3.org/2000/svg">
               <rect width="120" height="40" rx="6" fill="#000" stroke="#A6A6A6" stroke-width="0.8"/>
@@ -2268,12 +2376,12 @@ footer {
   <div class="container">
     <div class="stats-grid fade-in">
       <div class="stat-item">
-        <div class="stat-value" id="winrate-counter" data-count-to="57.2" data-suffix="%" data-decimals="1">0%</div>
+        <div class="stat-value" id="winrate-counter" data-count-to="59.8" data-suffix="%" data-decimals="1">0%</div>
         <div class="stat-label">Win Rate</div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
-        <div class="stat-value" id="graded-counter" data-count-to="6000" data-suffix="+" data-separator=",">0+</div>
+        <div class="stat-value" id="graded-counter" data-count-to="17000" data-suffix="+" data-separator=",">0+</div>
         <div class="stat-label">Props Analyzed</div>
       </div>
       <div class="stat-divider"></div>
@@ -2626,14 +2734,14 @@ footer {
           What do you mean by "self-learning"?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer"><p>After every week of games, our system grades every prediction against real player stats. It then backtests different agent weight configurations and automatically adjusts which agents get more or less influence. Agents that were accurate get promoted; agents that were wrong get demoted. This means the model continuously improves — our win rate went from 44% to 57% through this process.</p></div>
+        <div class="faq-answer"><p>After every week of games, our system grades every prediction against real player stats. It then backtests different agent weight configurations and automatically adjusts which agents get more or less influence. Agents that were accurate get promoted; agents that were wrong get demoted. This means the model continuously improves — our win rate went from 44% to 59% through this process.</p></div>
       </div>
       <div class="faq-item fade-in" style="transition-delay:0.3s">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open');const a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-          Where does the 57% win rate come from?
+          Where does the 59% win rate come from?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer"><p>That's our verified hit rate across over <span class="graded-count">6,000+</span> graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked — no cherry-picking.</p></div>
+        <div class="faq-answer"><p>That's our verified hit rate across over <span class="graded-count">17,000+</span> graded NFL, NBA, MLB, NHL, EPL, and MLS player prop legs from the 2025 and 2026 seasons. Every prediction is logged, graded against real results, and tracked — no cherry-picking.</p></div>
       </div>
     </div>
   </div>
@@ -2819,7 +2927,7 @@ footer {
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta-text">
     <span class="sticky-cta-title">PropEdge</span>
-    <span class="sticky-cta-sub">Free · 57% Win Rate</span>
+    <span class="sticky-cta-sub">Free · 59% Win Rate</span>
   </div>
   <a href="#pricing" class="btn btn-primary">Download Free</a>
 </div>
@@ -2951,12 +3059,22 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         }
       }
 
-      // Update text mentions of the count (round down to nearest 1,000)
+      // Update text mentions + hero proof strip
       const rounded = Math.floor(data.total / 1000) * 1000;
       const label = rounded.toLocaleString() + '+';
       document.querySelectorAll('.graded-count').forEach(el => {
         el.textContent = label;
       });
+
+      // Hero proof strip
+      const heroWin = document.getElementById('hero-winrate');
+      const heroTotal = document.getElementById('hero-total');
+      if (heroWin && data.win_rate) {
+        heroWin.textContent = data.win_rate.toFixed(1) + '%';
+      }
+      if (heroTotal) {
+        heroTotal.textContent = label;
+      }
     })
     .catch(() => { /* fallback: hardcoded values remain */ });
 })();
