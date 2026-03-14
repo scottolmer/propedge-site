@@ -457,19 +457,20 @@ nav .container {
 /* ── Dropdown panel ── */
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(-8px);
+  transform: translateX(-50%);
   min-width: 230px;
   background: rgba(14, 17, 23, 0.97);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 8px;
+  padding-top: 16px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition: opacity 0.18s ease;
   z-index: 300;
 }
 
@@ -478,7 +479,6 @@ nav .container {
   .nav-item:hover > .nav-dropdown {
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
   }
 }
 
