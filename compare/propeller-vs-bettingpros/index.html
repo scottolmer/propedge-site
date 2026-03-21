@@ -379,6 +379,15 @@ nav .container {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
   opacity: 0; pointer-events: none; transition: opacity 0.18s ease, transform 0.18s ease; z-index: 300;
 }
+/* Invisible bridge so hover does not break between trigger and dropdown */
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
 @media (min-width: 768px) {
   .nav-item:hover > .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
 }

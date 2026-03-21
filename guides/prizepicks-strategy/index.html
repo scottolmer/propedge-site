@@ -427,6 +427,15 @@ nav .container {
   transition: opacity 0.18s ease, transform 0.18s ease;
   z-index: 300;
 }
+/* Invisible bridge so hover does not break between trigger and dropdown */
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
 
 @media (min-width: 768px) {
   .nav-item:hover > .nav-dropdown {

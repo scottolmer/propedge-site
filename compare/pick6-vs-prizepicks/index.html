@@ -310,6 +310,15 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
   opacity: 0; pointer-events: none; transition: opacity 0.18s ease, transform 0.18s ease; z-index: 300;
 }
+/* Invisible bridge so hover does not break between trigger and dropdown */
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
 @media (min-width: 768px) { .nav-item:hover > .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); } }
 .nav-dropdown a { display: block; padding: 9px 12px; color: var(--text-secondary); text-decoration: none; font-size: 13.5px; font-weight: 500; border-radius: 8px; transition: color 0.15s, background 0.15s; white-space: nowrap; }
 .nav-dropdown a:hover { color: var(--text-primary); background: rgba(249, 115, 22, 0.08); }
