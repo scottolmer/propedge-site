@@ -186,7 +186,7 @@
   --accent-muted: rgba(249, 115, 22, 0.12);
   --text-primary: #F1F5F9;
   --text-secondary: #D1D9E0;
-  --text-tertiary: #94A3B8;
+  --text-tertiary: #A8B5C4;
   --success: #10B981;
   --danger: #EF4444;
   --gold: #F59E0B;
@@ -1549,6 +1549,56 @@ nav .btn { padding: 10px 20px; font-size: 14px; flex-shrink: 0; }
   font-size: 11px;
 }
 
+/* Billing toggle */
+.billing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 36px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.billing-toggle-track {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  background: var(--card-border, rgba(255,255,255,0.08));
+  border-radius: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1px solid var(--glass-border);
+}
+.billing-toggle-track.annual {
+  background: var(--accent);
+}
+.billing-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.billing-toggle-track.annual .billing-toggle-thumb {
+  transform: translateX(22px);
+}
+.billing-toggle-label.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.annual-save-badge {
+  background: var(--accent-muted);
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
 .pricing-features {
   list-style: none;
   display: flex;
@@ -2266,6 +2316,15 @@ footer {
   font-size: 18px;
   margin-bottom: 6px;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .bg-orb { display: none; }
+}
 </style>
 </head>
 <body>
@@ -2436,11 +2495,11 @@ footer {
         <span class="screenshot-caption">Agent Breakdown</span>
       </div>
       <div class="screenshot-phone">
-        <div class="screenshot-frame"><img src="images/04.png" alt="Propeller AI-built pick combos for Pick6 Underdog and PrizePicks" loading="eager"></div>
+        <div class="screenshot-frame"><img src="images/04.png" alt="Propeller AI-built pick combos for Pick6 Underdog and PrizePicks" loading="lazy"></div>
         <span class="screenshot-caption">AI Parlays</span>
       </div>
       <div class="screenshot-phone">
-        <div class="screenshot-frame"><img src="images/05.png" alt="Propeller best odds comparison across sportsbooks" loading="eager"></div>
+        <div class="screenshot-frame"><img src="images/05.png" alt="Propeller best odds comparison across sportsbooks" loading="lazy"></div>
         <span class="screenshot-caption">Best Odds</span>
       </div>
       <div class="screenshot-phone">
@@ -2471,6 +2530,21 @@ footer {
       <button class="carousel-dot" data-index="4" aria-label="Page 5"></button>
     </div>
     <button class="carousel-arrow" id="carouselNext" aria-label="Next">&#8250;</button>
+  </div>
+</section>
+
+<!-- App Demo Placeholder — drop in screen recording MP4/GIF later -->
+<section class="demo-section" id="demo" style="padding: 60px 0; text-align: center;">
+  <div class="container">
+    <div class="section-label" style="margin-bottom: 12px;">SEE IT IN ACTION</div>
+    <h2 style="font-family: var(--font-display); font-size: clamp(24px, 3.5vw, 36px); color: var(--text-primary); margin-bottom: 16px;">Watch How It Works</h2>
+    <p style="color: var(--text-secondary); max-width: 520px; margin: 0 auto 32px; font-size: 16px;">Open the app. See your picks. Build your lineup. It's that simple.</p>
+    <div class="demo-placeholder" style="max-width: 320px; margin: 0 auto; aspect-ratio: 9/19.5; background: var(--card-bg); border: 2px dashed rgba(249,115,22,0.3); border-radius: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-tertiary); font-size: 14px;">
+      <div style="text-align: center; padding: 20px;">
+        <svg style="width: 48px; height: 48px; margin-bottom: 12px; opacity: 0.5;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div>App demo coming soon</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2646,27 +2720,27 @@ footer {
     <h2 class="section-title fade-in">From Raw Data to a Confidence Score in Seconds</h2>
     <div class="pipeline">
       <div class="pipeline-node fade-in">
-        <div class="pipeline-icon"><i data-lucide="database" width="28" height="28"></i></div>
-        <div class="pipeline-label">Live Data</div>
-        <div class="pipeline-sub">Odds, injuries, stats, lineups</div>
+        <div class="pipeline-icon"><i data-lucide="smartphone" width="28" height="28"></i></div>
+        <div class="pipeline-label">Open the App</div>
+        <div class="pipeline-sub">Today's picks are ready and waiting</div>
       </div>
       <div class="pipeline-arrow fade-in delay-1"><svg width="40" height="20" viewBox="0 0 40 20"><path d="M0 10 L30 10 M25 4 L32 10 L25 16" stroke="#F97316" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
       <div class="pipeline-node fade-in delay-1">
-        <div class="pipeline-icon"><i data-lucide="brain" width="28" height="28"></i></div>
-        <div class="pipeline-label">8 AI Agents</div>
-        <div class="pipeline-sub">Each scores the prop independently</div>
+        <div class="pipeline-icon"><i data-lucide="bar-chart-2" width="28" height="28"></i></div>
+        <div class="pipeline-label">See Confidence Scores</div>
+        <div class="pipeline-sub">One clear number tells you how strong each pick is</div>
       </div>
       <div class="pipeline-arrow fade-in delay-2"><svg width="40" height="20" viewBox="0 0 40 20"><path d="M0 10 L30 10 M25 4 L32 10 L25 16" stroke="#F97316" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
       <div class="pipeline-node fade-in delay-2">
-        <div class="pipeline-icon"><i data-lucide="calculator" width="28" height="28"></i></div>
-        <div class="pipeline-label">Weighted Score</div>
-        <div class="pipeline-sub">Calibrated average with confidence</div>
+        <div class="pipeline-icon"><i data-lucide="check-circle" width="28" height="28"></i></div>
+        <div class="pipeline-label">Pick Your Plays</div>
+        <div class="pipeline-sub">Build your lineup from top-ranked props</div>
       </div>
       <div class="pipeline-arrow fade-in delay-3"><svg width="40" height="20" viewBox="0 0 40 20"><path d="M0 10 L30 10 M25 4 L32 10 L25 16" stroke="#F97316" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
       <div class="pipeline-node pipeline-node-result fade-in delay-3">
         <div class="pipeline-score">72</div>
-        <div class="pipeline-label">Your Pick</div>
-        <div class="pipeline-sub">One clear number. That's it.</div>
+        <div class="pipeline-label">Track Results</div>
+        <div class="pipeline-sub">See your record. Watch the win rate grow.</div>
       </div>
     </div>
   </div>
@@ -2677,6 +2751,16 @@ footer {
   <div class="container">
     <p class="label section-label fade-in">Pricing</p>
     <h2 class="section-title fade-in">Pick Your Plan</h2>
+
+    <!-- Billing toggle -->
+    <div class="billing-toggle fade-in" id="billingToggle" role="group" aria-label="Billing period">
+      <span class="billing-toggle-label active" id="billingLabelMonthly">Monthly</span>
+      <div class="billing-toggle-track" id="billingTrack" role="switch" aria-checked="false" tabindex="0" aria-label="Switch to annual billing">
+        <div class="billing-toggle-thumb"></div>
+      </div>
+      <span class="billing-toggle-label" id="billingLabelAnnual">Annual <span class="annual-save-badge">Save 17%</span></span>
+    </div>
+
     <div class="pricing-grid">
       <div class="card pricing-card pricing-card-free fade-in">
         <p class="label">Free</p>
@@ -2696,8 +2780,8 @@ footer {
         <p class="label" style="color:var(--accent);">Premium</p>
         <h3>Propeller Pro</h3>
         <div class="pricing-price">
-          <span class="amount">$29.99</span><span class="period"> /mo</span>
-          <div class="pricing-yearly">or $299.99/yr <span class="save-badge">Save 17%</span></div>
+          <span class="amount" id="proAmount">$29.99</span><span class="period" id="proPeriod"> /mo</span>
+          <div class="pricing-yearly" id="proYearlyNote">or $299.99/yr <span class="save-badge">Save 17%</span></div>
         </div>
         <ul class="pricing-features">
           <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Unlimited props and full agent breakdowns</li>
@@ -2729,7 +2813,7 @@ footer {
             </th>
             <th>
               <span class="compare-col-name">Props.Cash</span>
-              <span class="compare-col-price">Free – $19.99/mo</span>
+              <span class="compare-col-price">Free – $25.00/mo</span>
             </th>
             <th>
               <span class="compare-col-name">Outlier</span>
@@ -3124,7 +3208,18 @@ document.querySelectorAll('.nav-item > .nav-item-link[href]').forEach(function(l
   const orbs = document.querySelectorAll('.bg-orb');
   if (!orbs.length) return;
   let t = 0;
+
+  // Only animate orbs when visible (saves battery)
+  var orbsVisible = true;
+  var heroSection = document.querySelector('.hero');
+  if (heroSection && window.IntersectionObserver) {
+    new IntersectionObserver(function(entries) {
+      orbsVisible = entries[0].isIntersecting;
+    }, { threshold: 0 }).observe(heroSection);
+  }
+
   function drift() {
+    if (!orbsVisible) { requestAnimationFrame(drift); return; }
     t += 0.0015;
     orbs[0].style.transform = 'translate(' + (Math.sin(t * 0.7) * 80) + 'px,' + (Math.cos(t * 0.5) * 60) + 'px)';
     orbs[1].style.transform = 'translate(' + (Math.sin(t * 0.4 + 2) * 70) + 'px,' + (Math.cos(t * 0.6 + 1) * 80) + 'px)';
@@ -3208,6 +3303,8 @@ function animateCounters() {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const el = entry.target;
+      if (el.dataset.animated) return;
+      el.dataset.animated = 'true';
       if (el.dataset.counted) return;
       el.dataset.counted = 'true';
 
@@ -3303,6 +3400,13 @@ animateCounters();
   next.addEventListener('click', resetAuto);
   dots.forEach(d => d.addEventListener('click', resetAuto));
   track.addEventListener('touchend', resetAuto);
+
+  // Pause auto-rotation on hover/focus (WCAG 2.2.2)
+  var carouselEl = document.querySelector('.screenshots-carousel');
+  if (carouselEl) {
+    carouselEl.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+    carouselEl.addEventListener('mouseleave', resetAuto);
+  }
 })();
 
 // Sticky mobile CTA — show after scrolling past hero
@@ -3373,6 +3477,52 @@ function handleWaitlist(e) {
 
   return false;
 }
+
+// Billing toggle — Monthly / Annual
+(function() {
+  var track = document.getElementById('billingTrack');
+  var labelMonthly = document.getElementById('billingLabelMonthly');
+  var labelAnnual = document.getElementById('billingLabelAnnual');
+  var proAmount = document.getElementById('proAmount');
+  var proPeriod = document.getElementById('proPeriod');
+  var proYearlyNote = document.getElementById('proYearlyNote');
+  if (!track) return;
+
+  var isAnnual = false;
+
+  function applyState() {
+    if (isAnnual) {
+      track.classList.add('annual');
+      track.setAttribute('aria-checked', 'true');
+      labelMonthly.classList.remove('active');
+      labelAnnual.classList.add('active');
+      if (proAmount) proAmount.textContent = '$25.00';
+      if (proPeriod) proPeriod.textContent = ' /mo';
+      if (proYearlyNote) proYearlyNote.innerHTML = 'billed $299.99/yr &mdash; <strong style="color:var(--accent)">Save 17%</strong>';
+    } else {
+      track.classList.remove('annual');
+      track.setAttribute('aria-checked', 'false');
+      labelMonthly.classList.add('active');
+      labelAnnual.classList.remove('active');
+      if (proAmount) proAmount.textContent = '$29.99';
+      if (proPeriod) proPeriod.textContent = ' /mo';
+      if (proYearlyNote) proYearlyNote.innerHTML = 'or $299.99/yr <span class="save-badge">Save 17%</span>';
+    }
+  }
+
+  track.addEventListener('click', function() {
+    isAnnual = !isAnnual;
+    applyState();
+  });
+  track.addEventListener('keydown', function(e) {
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); isAnnual = !isAnnual; applyState(); }
+  });
+  // Make the text labels clickable too
+  labelMonthly.style.cursor = 'pointer';
+  labelAnnual.style.cursor = 'pointer';
+  labelMonthly.addEventListener('click', function() { if (isAnnual) { isAnnual = false; applyState(); } });
+  labelAnnual.addEventListener('click', function() { if (!isAnnual) { isAnnual = true; applyState(); } });
+})();
 </script>
 </body>
 </html>
