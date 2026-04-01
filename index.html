@@ -2544,7 +2544,7 @@ footer {
   <div class="container">
     <div class="proof-feed-inner">
       <div class="proof-header fade-in">
-        <div class="proof-label">Live Results</div>
+        <div class="proof-label">Yesterday's Results</div>
         <div class="proof-record" id="proofRecord">
           <span class="win-count">--</span>W &ndash; <span class="loss-count">--</span>L<span class="wr"></span>
         </div>
@@ -3366,7 +3366,7 @@ animateCounters();
   var SPORT_ICONS = { nba: '\u{1F3C0}', nfl: '\u{1F3C8}', nhl: '\u{1F3D2}', mlb: '\u26BE', soccer: '\u26BD' };
 
   function renderProofFeed(data) {
-    var rec = data.today_record;
+    var rec = data.record || data.today_record || {};
     var recEl = document.getElementById('proofRecord');
     var dateEl = document.getElementById('proofDate');
     var picksEl = document.getElementById('proofPicks');
@@ -3375,16 +3375,22 @@ animateCounters();
     // Record
     var wr = rec.win_rate ? ' (' + rec.win_rate + '%)' : '';
     recEl.innerHTML =
-      '<span class="win-count">' + rec.wins + '</span>W &ndash; ' +
-      '<span class="loss-count">' + rec.losses + '</span>L' +
+      '<span class="win-count">' + (rec.wins || 0) + '</span>W &ndash; ' +
+      '<span class="loss-count">' + (rec.losses || 0) + '</span>L' +
       '<span class="wr">' + wr + '</span>';
 
-    // Date label
-    var total = data.total_today;
-    var now = new Date();
-    var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    dateEl.textContent = dayNames[now.getDay()] + ', ' + monthNames[now.getMonth()] + ' ' + now.getDate() + ' \u00B7 ' + total + ' picks graded';
+    // Date label — show the actual date of the graded picks
+    var total = data.total || data.total_today || 0;
+    var dateStr = data.date;
+    var label = '';
+    if (dateStr) {
+      var parts = dateStr.split('-');
+      var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+      var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      label = dayNames[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + d.getDate();
+    }
+    dateEl.textContent = label + ' \u00B7 ' + total + ' picks graded';
 
     // Picks list
     var picks = data.picks || [];
