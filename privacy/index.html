@@ -1,148 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Propeller Picks</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.7;
-            padding: 20px;
-        }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #0AE2A3;
-            margin-bottom: 8px;
-        }
-        .last-updated {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 40px;
-        }
-        h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-            margin-top: 36px;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        p, li {
-            color: #bbb;
-            font-size: 15px;
-            margin-bottom: 12px;
-        }
-        ul {
-            padding-left: 24px;
-            margin-bottom: 16px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        strong {
-            color: #e0e0e0;
-        }
-        .highlight {
-            background: rgba(10, 226, 163, 0.1);
-            border-left: 3px solid #0AE2A3;
-            padding: 16px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .highlight p {
-            margin-bottom: 0;
-            color: #ccc;
-        }
-        a {
-            color: #0AE2A3;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: #666;
-            font-size: 13px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Z7JMN1JTL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Z7JMN1JTL');
+</script>
+
+<title>Privacy Policy — Propeller Picks</title>
+<meta name="description" content="Propeller Picks privacy policy. We collect minimal data, store everything locally on your device, and never sell your personal information.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://propellerpicks.com/privacy/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://propellerpicks.com/privacy/">
+<meta property="og:title" content="Privacy Policy — Propeller Picks">
+<meta property="og:description" content="Propeller Picks privacy policy. We collect minimal data, store everything locally, and never sell your information.">
+<meta property="og:site_name" content="Propeller">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@propellerpicks">
+<meta name="author" content="Propeller">
+<meta name="theme-color" content="#0AE2A3">
+<meta name="color-scheme" content="dark">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g transform='translate(50,50)'><rect x='-5' y='-38' width='10' height='32' rx='5' fill='%23F97316' transform='rotate(0)'/><rect x='-5' y='-38' width='10' height='32' rx='5' fill='%23F97316' transform='rotate(120)'/><rect x='-5' y='-38' width='10' height='32' rx='5' fill='%23F97316' transform='rotate(240)'/><circle cx='0' cy='0' r='8' fill='%23F97316'/></g></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,800,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ─── Reset & Base ─── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a14;--surface:#12121e;--card:#161625;--border:rgba(255,255,255,0.06);
+  --text:#e8e8f0;--text-secondary:#9898b0;--text-tertiary:#64648a;
+  --accent:#F97316;--accent-muted:rgba(249,115,22,0.12);
+  --radius:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ─── Nav ─── */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,20,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1200px;margin:0 auto;padding:0}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Satoshi',sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none}
+.logo-icon{width:28px;height:28px;background:var(--accent);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg transform='translate(50,50)'%3E%3Crect x='-5' y='-38' width='10' height='32' rx='5' transform='rotate(0)'/%3E%3Crect x='-5' y='-38' width='10' height='32' rx='5' transform='rotate(120)'/%3E%3Crect x='-5' y='-38' width='10' height='32' rx='5' transform='rotate(240)'/%3E%3Ccircle r='8'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg transform='translate(50,50)'%3E%3Crect x='-5' y='-38' width='10' height='32' rx='5' transform='rotate(0)'/%3E%3Crect x='-5' y='-38' width='10' height='32' rx='5' transform='rotate(120)'/%3E%3Crect x='-5' y='-38' width='10' height='32' rx='5' transform='rotate(240)'/%3E%3Ccircle r='8'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-item{position:relative}
+.nav-item-link{display:flex;align-items:center;gap:4px;padding:8px 14px;color:var(--text-secondary);font-size:14px;font-weight:500;text-decoration:none;border:none;background:none;cursor:pointer;border-radius:8px;transition:color .15s,background .15s;white-space:nowrap}
+.nav-item-link:hover{color:#fff;background:rgba(255,255,255,0.05)}
+.nav-chevron{width:12px;height:12px;transition:transform .2s}
+.nav-dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:200px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:8px;z-index:200;box-shadow:0 12px 40px rgba(0,0,0,0.5)}
+.nav-dropdown a{display:block;padding:8px 12px;color:var(--text-secondary);font-size:13px;text-decoration:none;border-radius:8px;transition:background .15s,color .15s}
+.nav-dropdown a:hover{background:rgba(255,255,255,0.05);color:#fff}
+.nav-dropdown-separator{height:1px;background:var(--border);margin:4px 8px}
+.hamburger{display:none;padding:8px;border:none;background:none;color:#fff;cursor:pointer;border-radius:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn-primary{background:var(--accent);color:#000}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(249,115,22,0.3)}
+@media(max-width:900px){
+  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;padding:24px;gap:4px;overflow-y:auto;z-index:150}
+  .nav-links.open{display:flex}
+  .nav-dropdown{position:static;display:none;box-shadow:none;border:none;background:transparent;padding:0 0 0 16px}
+  .nav-item.open .nav-dropdown{display:block}
+  .hamburger{display:flex}
+  .btn-primary{display:none}
+}
+
+/* ─── Breadcrumb ─── */
+.breadcrumb{padding:16px 0;font-size:13px;color:var(--text-tertiary)}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb-sep{margin:0 8px;opacity:.4}
+
+/* ─── Legal Content ─── */
+.legal-page{max-width:740px;margin:0 auto;padding:40px 24px 80px}
+.legal-page h1{font-family:'Satoshi',sans-serif;font-size:36px;font-weight:800;color:#fff;margin-bottom:8px}
+.legal-page .last-updated{font-size:14px;color:var(--text-tertiary);margin-bottom:40px}
+.legal-page .summary-box{background:var(--accent-muted);border-left:3px solid var(--accent);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:36px}
+.legal-page .summary-box p{margin:0;color:var(--text-secondary);font-size:15px;line-height:1.6}
+.legal-page .summary-box strong{color:var(--text)}
+.legal-page h2{font-size:20px;font-weight:700;color:#fff;margin-top:36px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.legal-page p{color:var(--text-secondary);font-size:15px;margin-bottom:14px;line-height:1.7}
+.legal-page ul,.legal-page ol{padding-left:24px;margin-bottom:16px}
+.legal-page li{color:var(--text-secondary);font-size:15px;margin-bottom:8px;line-height:1.7}
+.legal-page strong{color:var(--text)}
+.legal-page a{color:var(--accent);text-decoration:none}
+.legal-page a:hover{text-decoration:underline}
+.legal-page .warning-box{background:rgba(245,158,11,0.08);border-left:3px solid #F59E0B;padding:16px 20px;border-radius:0 10px 10px 0;margin:20px 0}
+.legal-page .warning-box p{margin:0;color:var(--text-secondary)}
+.legal-page .warning-box strong{color:#F59E0B}
+
+/* ─── Footer ─── */
+.footer-top{border-top:1px solid var(--border);padding:48px 0 24px}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:32px}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;font-family:'Satoshi',sans-serif;font-weight:800;font-size:18px;color:#fff;text-decoration:none;margin-bottom:12px}
+.footer-tagline{font-size:13px;color:var(--text-tertiary);line-height:1.5}
+.footer-col-header{font-size:12px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.footer-col-links{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+.footer-col-links a{font-size:13px;color:var(--text-secondary);text-decoration:none;transition:color .15s}
+.footer-col-links a:hover{color:#fff}
+.footer-bottom{border-top:1px solid var(--border);padding:16px 0}
+.footer-bottom-row{display:flex;justify-content:center}
+.footer-copy{font-size:12px;color:var(--text-tertiary)}
+.legal-disclaimer{padding:24px 0 40px;font-size:12px;color:var(--text-tertiary);line-height:1.6}
+.legal-disclaimer-heading{font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;color:var(--text-secondary);font-size:11px}
+.legal-disclaimer-text{margin-bottom:10px}
+.legal-disclaimer-caps{margin-top:16px;text-transform:uppercase;font-size:10px;letter-spacing:.3px;opacity:.7}
+.age-badge{display:inline-block;background:rgba(249,115,22,0.15);color:var(--accent);font-weight:700;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:4px}
+.responsible-gambling{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary)}
+.responsible-gambling a{color:var(--accent);text-decoration:none}
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr}
+  .legal-page h1{font-size:28px}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: February 12, 2026</p>
 
-        <div class="highlight">
-            <p><strong>Summary:</strong> We collect minimal data, store everything locally on your device, and never sell your personal information to third parties.</p>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">
+      <div class="logo-icon"></div>
+      Propeller
+    </a>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item" id="navPicks">
+        <button class="nav-item-link" aria-haspopup="true" aria-expanded="false" onclick="toggleNavDropdown('navPicks', event)">Picks <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/picks/nba/" role="menuitem">NBA Picks Today</a>
+          <a href="/picks/nhl/" role="menuitem">NHL Picks Today</a>
+          <a href="/picks/mlb/" role="menuitem">MLB Picks Today</a>
+          <a href="/picks/nfl/" role="menuitem">NFL Picks Today</a>
+          <a href="/picks/soccer/" role="menuitem">Soccer Picks Today</a>
+          <div class="nav-dropdown-separator"></div>
+          <a href="/picks/prizepicks/" role="menuitem">PrizePicks Picks</a>
+          <a href="/picks/pick6/" role="menuitem">Pick6 Picks</a>
+          <a href="/picks/underdog/" role="menuitem">Underdog Picks</a>
         </div>
-
-        <h2>1. Information We Collect</h2>
-        <p>Propeller Picks ("the App") collects and processes the following types of information:</p>
-        <ul>
-            <li><strong>Locally Stored Data:</strong> Your saved analyses, tracking history, preferences, and tutorial progress are stored locally on your device using AsyncStorage. This data never leaves your device.</li>
-            <li><strong>API Requests:</strong> When you browse analysis, generate recommendations, or request AI insights, we send requests to our backend server containing only the necessary parameters. No personal identifiers are included.</li>
-            <li><strong>Device Information:</strong> We may collect basic device type and OS version for crash reporting and performance optimization.</li>
-        </ul>
-
-        <h2>2. How We Use Your Information</h2>
-        <p>We use the information we collect to:</p>
-        <ul>
-            <li>Provide AI-powered sports analysis and recommendations</li>
-            <li>Store your preferences and tracking history locally on your device</li>
-            <li>Improve the accuracy of our prediction models</li>
-            <li>Monitor and fix technical issues</li>
-        </ul>
-
-        <h2>3. Data Storage and Security</h2>
-        <p>Your personal data (saved bets, preferences) is stored exclusively on your device using React Native AsyncStorage. We do not maintain user accounts or store personal data on our servers.</p>
-        <p>API communications between the App and our backend server are transmitted over HTTPS encryption. Our backend server processes requests statelessly — it does not store or log individual user requests.</p>
-
-        <h2>4. Third-Party Services</h2>
-        <p>The App may interact with the following third-party services:</p>
-        <ul>
-            <li><strong>Expo / React Native:</strong> Framework for building and distributing the app</li>
-            <li><strong>Sports Data APIs:</strong> We aggregate publicly available odds and player statistics from licensed data providers</li>
-            <li><strong>Google Gemini AI:</strong> Used for advanced parlay grading and analysis (no personal data is sent)</li>
-        </ul>
-
-        <h2>5. Disclaimer</h2>
-        <p>The App provides informational sports analysis only. We do not facilitate, process, or handle any transactions. The App does not guarantee any outcomes. All analysis is for informational and entertainment purposes.</p>
-
-        <h2>6. Children's Privacy</h2>
-        <p>The App is not intended for use by individuals under the age of 18. We do not knowingly collect data from minors.</p>
-
-        <h2>7. Data Deletion</h2>
-        <p>You can delete your data at any time by:</p>
-        <ul>
-            <li>Using "Delete Account" in the App's settings to permanently remove your account and all server-side data</li>
-            <li>Clearing the App's data through your device settings to remove locally stored data</li>
-            <li>Uninstalling the App</li>
-        </ul>
-
-        <h2>8. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. Your continued use of the App after changes constitutes acceptance of the updated policy.</p>
-
-        <h2>9. Contact Us</h2>
-        <p>If you have questions about this Privacy Policy, please contact us at:</p>
-        <p><a href="https://github.com/scottolmer/nfl-betting-system/issues">GitHub Issues</a></p>
-
-        <div class="footer">
-            <p>Propeller Picks &copy; 2026. All rights reserved.</p>
+      </div>
+      <div class="nav-item" id="navGuides">
+        <button class="nav-item-link" aria-haspopup="true" aria-expanded="false" onclick="toggleNavDropdown('navGuides', event)">Guides <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/guides/prizepicks-strategy/" role="menuitem">PrizePicks Strategy</a>
+          <a href="/guides/pick6-strategy/" role="menuitem">Pick6 Strategy</a>
+          <a href="/guides/nba-prop-betting/" role="menuitem">NBA Prop Betting</a>
+          <div class="nav-dropdown-separator"></div>
+          <a href="/how-it-works/" role="menuitem">How It Works</a>
         </div>
+      </div>
+      <div class="nav-item" id="navCompare">
+        <button class="nav-item-link" aria-haspopup="true" aria-expanded="false" onclick="toggleNavDropdown('navCompare', event)">Compare <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/compare/propeller-vs-bettingpros/" role="menuitem">Propeller vs BettingPros</a>
+          <a href="/compare/propeller-vs-oddsjam/" role="menuitem">Propeller vs OddsJam</a>
+          <a href="/compare/pick6-vs-prizepicks/" role="menuitem">Pick6 vs PrizePicks</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/analyzer/" class="nav-item-link" onclick="closeAllNavDropdowns(); closeMobileMenu();">Analyzer</a></div>
+      <div class="nav-item"><a href="/results/" class="nav-item-link" onclick="closeAllNavDropdowns(); closeMobileMenu();">Results</a></div>
     </div>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
+      <svg id="hamburgerIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="/#pricing" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Get Started</a>
+  </div>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span>Privacy Policy</span>
+  </nav>
+</div>
+
+<main class="legal-page">
+
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last updated: April 2, 2026</p>
+
+  <div class="summary-box">
+    <p><strong>Summary:</strong> We collect minimal data, store everything locally on your device, and never sell your personal information to third parties.</p>
+  </div>
+
+  <h2>1. Information We Collect</h2>
+  <p>Propeller Picks ("the App") collects and processes the following types of information:</p>
+  <ul>
+    <li><strong>Locally Stored Data:</strong> Your saved parlays, bet history, sportsbook preferences, and tutorial progress are stored locally on your device using AsyncStorage. This data never leaves your device.</li>
+    <li><strong>API Requests:</strong> When you browse props, generate parlays, or request AI analysis, we send requests to our backend server containing only the necessary parameters (game date, player names, stat types). No personal identifiers are included.</li>
+    <li><strong>Device Information:</strong> We may collect basic device type and OS version for crash reporting and performance optimization.</li>
+    <li><strong>Subscription Data:</strong> If you subscribe to Propeller Pro, payment is processed by Apple via your Apple ID. We receive transaction receipts and subscription status through RevenueCat — we never see your payment details.</li>
+    <li><strong>Analytics:</strong> We use Firebase Analytics to collect anonymized usage data (screens viewed, features used) to improve the app experience. No personally identifiable information is collected.</li>
+  </ul>
+
+  <h2>2. How We Use Your Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Provide AI-powered prop analysis and pick recommendations across NFL, NBA, NHL, MLB, Soccer, and UFC</li>
+    <li>Store your preferences, watchlist, and tracking history locally on your device</li>
+    <li>Improve the accuracy of our prediction models</li>
+    <li>Monitor and fix technical issues</li>
+    <li>Send push notifications you've opted into (e.g., watchlist alerts, line movement)</li>
+  </ul>
+
+  <h2>3. Data Storage and Security</h2>
+  <p>Your personal data (saved bets, preferences, watchlist) is stored exclusively on your device using React Native AsyncStorage. We do not maintain user accounts or store personal data on our servers.</p>
+  <p>API communications between the App and our backend server are transmitted over HTTPS encryption. Our backend server processes requests statelessly — it does not store or log individual user requests.</p>
+
+  <h2>4. Third-Party Services</h2>
+  <p>The App may interact with the following third-party services:</p>
+  <ul>
+    <li><strong>Apple App Store:</strong> Subscription payments are processed by Apple. We receive transaction receipts and subscription status only — we never see your payment details.</li>
+    <li><strong>RevenueCat:</strong> Anonymized subscription management. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's privacy policy</a>.</li>
+    <li><strong>Firebase Analytics:</strong> Anonymized usage analytics to improve the app. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy policy</a>.</li>
+    <li><strong>Expo / React Native:</strong> Framework for building and distributing the app.</li>
+    <li><strong>Sports Data APIs:</strong> We aggregate publicly available odds and player statistics from licensed data providers.</li>
+  </ul>
+
+  <h2>5. Disclaimer</h2>
+  <p>The App provides informational sports analysis for entertainment purposes only. We do not facilitate, process, or handle any gambling transactions. All betting decisions are made solely by the user on third-party platforms. The App does not guarantee any outcomes. Past performance does not guarantee future results.</p>
+
+  <h2>6. Children's Privacy</h2>
+  <p>The App is not intended for use by individuals under the age of 18. We do not knowingly collect data from minors.</p>
+
+  <h2>7. Data Deletion</h2>
+  <p>You can delete your data at any time by:</p>
+  <ul>
+    <li>Using "Delete Account" in the App's settings to permanently remove your account and all server-side data</li>
+    <li>Clearing the App's data through your device settings to remove locally stored data</li>
+    <li>Uninstalling the App</li>
+  </ul>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. Your continued use of the App after changes constitutes acceptance of the updated policy.</p>
+
+  <h2>9. Contact Us</h2>
+  <p>If you have questions about this Privacy Policy, please contact us via the <a href="https://apps.apple.com/app/propeller-picks">App Store listing</a> or email us at support@propellerpicks.com.</p>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-brand-logo"><div class="logo-icon"></div> Propeller</a>
+          <p class="footer-tagline">AI-powered prop analysis for Pick6, Underdog, PrizePicks &amp; FanDuel.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-header">Daily Picks</p>
+          <div class="footer-col-links">
+            <a href="/picks/nba/">NBA Picks Today</a>
+            <a href="/picks/nhl/">NHL Picks Today</a>
+            <a href="/picks/mlb/">MLB Picks Today</a>
+            <a href="/picks/nfl/">NFL Picks Today</a>
+            <a href="/picks/soccer/">Soccer Picks Today</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-header">Platforms</p>
+          <div class="footer-col-links">
+            <a href="/picks/prizepicks/">PrizePicks Picks</a>
+            <a href="/picks/pick6/">Pick6 Picks</a>
+            <a href="/picks/underdog/">Underdog Picks</a>
+          </div>
+          <p class="footer-col-header" style="margin-top:20px;">Compare</p>
+          <div class="footer-col-links">
+            <a href="/compare/propeller-vs-bettingpros/">vs BettingPros</a>
+            <a href="/compare/propeller-vs-oddsjam/">vs OddsJam</a>
+            <a href="/compare/pick6-vs-prizepicks/">Pick6 vs PrizePicks</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-header">Learn</p>
+          <div class="footer-col-links">
+            <a href="/how-it-works/">How It Works</a>
+            <a href="/guides/prizepicks-strategy/">PrizePicks Guide</a>
+            <a href="/guides/pick6-strategy/">Pick6 Guide</a>
+            <a href="/guides/nba-prop-betting/">NBA Betting Guide</a>
+            <a href="/analyzer/">Prop Analyzer</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-header">Company</p>
+          <div class="footer-col-links">
+            <a href="/results/">Results</a>
+            <a href="/blog/">Blog</a>
+            <a href="https://x.com/propellerpicks" target="_blank" rel="noopener">Twitter / X</a>
+          </div>
+          <p class="footer-col-header" style="margin-top:20px;">Legal</p>
+          <div class="footer-col-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-row">
+        <p class="footer-copy">&copy; 2026 Propeller. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="legal-disclaimer">
+      <p class="legal-disclaimer-heading">Legal Disclaimer</p>
+      <p class="legal-disclaimer-text"><strong>For entertainment and informational purposes only.</strong> Propeller is a sports analytics and information service. Propeller is not a sportsbook, does not accept or place wagers, and does not pay out on any bets.</p>
+      <p class="legal-disclaimer-text"><strong>No guarantee of profit.</strong> Past performance does not guarantee future results. Sports outcomes are inherently unpredictable.</p>
+      <p class="legal-disclaimer-text"><strong>Know your local laws.</strong> Sports betting is not legal in all states or jurisdictions. You must be 21+ to use this service. <span class="age-badge">21+</span></p>
+      <div style="margin-top:16px;">
+        <span class="responsible-gambling">If you or someone you know has a gambling problem, call <strong>1-800-GAMBLER</strong> or visit <a href="https://www.ncpgambling.org" target="_blank" rel="noopener">ncpgambling.org</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNavDropdown(id, e) {
+  e && e.stopPropagation();
+  const el = document.getElementById(id);
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+function closeAllNavDropdowns() { document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open')); }
+function toggleMobileMenu() {
+  const links = document.getElementById('navLinks');
+  const icon = document.getElementById('hamburgerIcon');
+  links.classList.toggle('open');
+  if (links.classList.contains('open')) {
+    icon.innerHTML = '<line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>';
+  } else {
+    icon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+  }
+}
+function closeMobileMenu() { document.getElementById('navLinks').classList.remove('open'); }
+document.addEventListener('click', function(e) { if (!e.target.closest('.nav-item')) closeAllNavDropdowns(); });
+</script>
 </body>
 </html>
