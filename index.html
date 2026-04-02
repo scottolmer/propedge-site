@@ -2674,19 +2674,19 @@ footer {
     <h2 class="platforms-label fade-in">Built for the platforms you bet on</h2>
     <div class="platforms-grid fade-in">
       <div class="platform-item">
-        <img src="images/draftkingslogo.jpeg" alt="Pick6 by DraftKings" class="platform-logo">
+        <img src="images/draftkingslogo.jpeg" alt="Pick6 by DraftKings" class="platform-logo" loading="lazy">
         <span>Pick6</span>
       </div>
       <div class="platform-item">
-        <img src="images/underdoglogo.png" alt="Underdog Fantasy" class="platform-logo">
+        <img src="images/underdoglogo.png" alt="Underdog Fantasy" class="platform-logo" loading="lazy">
         <span>Underdog</span>
       </div>
       <div class="platform-item">
-        <img src="images/prizepickslogo.png" alt="PrizePicks" class="platform-logo">
+        <img src="images/prizepickslogo.png" alt="PrizePicks" class="platform-logo" loading="lazy">
         <span>PrizePicks</span>
       </div>
       <div class="platform-item">
-        <img src="images/fanduellogo.jpeg" alt="FanDuel" class="platform-logo">
+        <img src="images/fanduellogo.jpeg" alt="FanDuel" class="platform-logo" loading="lazy">
         <span>FanDuel</span>
       </div>
     </div>
@@ -3368,6 +3368,14 @@ animateCounters();
 (function() {
   var SPORT_ICONS = { nba: '\u{1F3C0}', nfl: '\u{1F3C8}', nhl: '\u{1F3D2}', mlb: '\u26BE', soccer: '\u26BD' };
 
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   function renderProofFeed(data) {
     var rec = data.record || data.today_record || {};
     var recEl = document.getElementById('proofRecord');
@@ -3415,8 +3423,8 @@ animateCounters();
       html += '<div class="proof-pick">' +
         '<div class="proof-pick-icon ' + (isWin ? 'win' : 'loss') + '">' + (isWin ? '\u2713' : '\u2717') + '</div>' +
         '<div class="proof-pick-info">' +
-          '<div class="proof-pick-player">' + icon + ' ' + (p.player_name || '') + '</div>' +
-          '<div class="proof-pick-prop">' + dir + ' ' + line + ' ' + stat + '</div>' +
+          '<div class="proof-pick-player">' + icon + ' ' + escHtml(p.player_name || '') + '</div>' +
+          '<div class="proof-pick-prop">' + dir + ' ' + line + ' ' + escHtml(stat) + '</div>' +
         '</div>' +
         '<span class="proof-pick-dir ' + dir.toLowerCase() + '">' + dir + '</span>' +
         '<span class="proof-pick-actual ' + (isWin ? 'win' : 'loss') + '">Actual: ' + actual + '</span>' +
@@ -3436,7 +3444,15 @@ animateCounters();
   }
 
   loadProofFeed();
-  setInterval(loadProofFeed, 60000);
+  var proofInterval = setInterval(loadProofFeed, 60000);
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      clearInterval(proofInterval);
+    } else {
+      loadProofFeed();
+      proofInterval = setInterval(loadProofFeed, 60000);
+    }
+  });
 })();
 
 // Sticky mobile CTA — show after scrolling past hero

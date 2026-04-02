@@ -2358,6 +2358,14 @@ function formatStatType(raw) {
   return raw.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function buildPickCard(pick, index, blurred) {
   const conf = getConfidence(pick);
   const dir = getDirection(pick);
@@ -2375,8 +2383,8 @@ function buildPickCard(pick, index, blurred) {
   const innerHTML = `
     <div class="pick-card-header">
       <div>
-        <div class="pick-player">${player}</div>
-        ${team ? `<div class="pick-team">${team}</div>` : ''}
+        <div class="pick-player">${escHtml(player)}</div>
+        ${team ? `<div class="pick-team">${escHtml(team)}</div>` : ''}
       </div>
       <div style="text-align:right;">
         <div class="pick-confidence">${conf !== null ? conf + '%' : '--'}</div>
@@ -2385,8 +2393,8 @@ function buildPickCard(pick, index, blurred) {
     </div>
 
     <div class="pick-prop">
-      <div class="pick-prop-line">${line} ${statType}</div>
-      <div class="pick-prop-type">${statType}</div>
+      <div class="pick-prop-line">${escHtml(line)} ${escHtml(statType)}</div>
+      <div class="pick-prop-type">${escHtml(statType)}</div>
     </div>
 
     <div style="display:flex; align-items:center; gap:10px;">
@@ -2408,7 +2416,7 @@ function buildPickCard(pick, index, blurred) {
 
     ${matchup ? `
     <div class="pick-footer">
-      <span class="pick-matchup">${matchup}</span>
+      <span class="pick-matchup">${escHtml(matchup)}</span>
     </div>` : ''}
   `;
 

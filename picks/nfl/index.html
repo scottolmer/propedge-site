@@ -2363,6 +2363,10 @@ document.querySelectorAll('.nav-item > .nav-item-link[href]').forEach(function(l
     return map[raw] || raw.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   }
 
+  function escHtml(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
   function getConfidence(score) {
     return Math.round(Math.abs(score - 50) + 50);
   }
@@ -2382,11 +2386,11 @@ document.querySelectorAll('.nav-item > .nav-item-link[href]').forEach(function(l
         <span class="pick-sport-badge">NFL</span>
         <span class="pick-direction pick-direction-${dir}">${prop.final_direction}</span>
       </div>
-      <div class="pick-player">${prop.player_name}</div>
-      <div class="pick-team">${prop.team || ''}</div>
+      <div class="pick-player">${escHtml(prop.player_name)}</div>
+      <div class="pick-team">${escHtml(prop.team || '')}</div>
       <div class="pick-stat-row">
         <span class="pick-line">${prop.line}</span>
-        <span class="pick-stat-type">${formatStatType(prop.stat_type)}</span>
+        <span class="pick-stat-type">${escHtml(formatStatType(prop.stat_type))}</span>
       </div>
       <div class="pick-confidence-bar">
         <div class="pick-confidence-fill ${fillClass}" style="width:${pct}%"></div>

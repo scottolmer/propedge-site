@@ -2339,6 +2339,16 @@ document.querySelectorAll('.nav-item > .nav-item-link[href]').forEach(function(l
     });
   });
 
+  function getTodayET() {
+    const now = new Date();
+    const etStr = now.toLocaleString('en-US', { timeZone: 'America/New_York' });
+    const et = new Date(etStr);
+    const y = et.getFullYear();
+    const m = String(et.getMonth() + 1).padStart(2, '0');
+    const d = String(et.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
   function formatStatType(raw) {
     const map = {
       shots_on_target: 'Shots on Target', total_shots: 'Total Shots',
@@ -2347,6 +2357,14 @@ document.querySelectorAll('.nav-item > .nav-item-link[href]').forEach(function(l
       yellow_cards: 'Yellow Cards'
     };
     return map[raw] || raw.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
   }
 
   function getLeagueLabel(team) {
@@ -2380,11 +2398,11 @@ document.querySelectorAll('.nav-item > .nav-item-link[href]').forEach(function(l
         </div>
         <span class="pick-direction pick-direction-${dir}">${prop.final_direction}</span>
       </div>
-      <div class="pick-player">${prop.player_name}</div>
-      <div class="pick-team">${prop.team || ''}</div>
+      <div class="pick-player">${escHtml(prop.player_name)}</div>
+      <div class="pick-team">${escHtml(prop.team || '')}</div>
       <div class="pick-stat-row">
         <span class="pick-line">${prop.line}</span>
-        <span class="pick-stat-type">${formatStatType(prop.stat_type)}</span>
+        <span class="pick-stat-type">${escHtml(formatStatType(prop.stat_type))}</span>
       </div>
       <div class="pick-confidence-bar">
         <div class="pick-confidence-fill ${fillClass}" style="width:${pct}%"></div>
@@ -2468,7 +2486,7 @@ document.querySelectorAll('.nav-item > .nav-item-link[href]').forEach(function(l
   }
 
   async function loadPicks() {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = getTodayET();
     const url = `${SOCCER_API}?game_date=${today}`;
 
     try {
