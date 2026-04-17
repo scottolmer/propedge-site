@@ -3596,5 +3596,48 @@ function handleWaitlist(e) {
   labelAnnual.addEventListener('click', function() { if (!isAnnual) { isAnnual = true; applyState(); } });
 })();
 </script>
+
+<!-- ============================================================
+     Live hero stats — fetch all-time win rate + total graded
+     from the public ledger API and replace the hardcoded numbers
+     so the homepage is never stale.
+============================================================ -->
+<script>
+(function () {
+  // 10-year window for "all time". Backend caps at 3650 days.
+  var API = 'https://web-production-3c1c4.up.railway.app/api/public/results?days=3650&limit=1';
+
+  function format(n) {
+    if (n >= 1000) return Math.floor(n / 1000) + ',' + String(n % 1000).padStart(3, '0');
+    return String(n);
+  }
+  function setText(id, text) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+  function setAllText(selector, text) {
+    var nodes = document.querySelectorAll(selector);
+    for (var i = 0; i < nodes.length; i++) nodes[i].textContent = text;
+  }
+
+  fetch(API, { method: 'GET', credentials: 'omit' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (!data) return;
+      // Win rate
+      if (typeof data.win_rate === 'number') {
+        setText('hero-winrate', data.win_rate.toFixed(1) + '%');
+      }
+      // Total graded — round down to nearest hundred and append "+"
+      if (typeof data.total === 'number' && data.total > 0) {
+        var rounded = Math.floor(data.total / 100) * 100;
+        var pretty = format(rounded) + '+';
+        setText('hero-total', pretty);
+        setAllText('.graded-count', pretty);
+      }
+    })
+    .catch(function () { /* silent — leaves the hardcoded fallback in place */ });
+})();
+</script>
 </body>
 </html>
