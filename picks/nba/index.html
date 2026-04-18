@@ -2422,16 +2422,16 @@ async function loadPicks() {
       return;
     }
 
-    // Show top 5 openly, 3 locked
-    const open = props.slice(0, 5);
-    const locked = props.slice(5, 8);
+    // Show top 3 openly, 3 locked
+    const open = props.slice(0, 3);
+    const locked = props.slice(3, 6);
 
     let html = '<div class="picks-grid">';
     open.forEach(p => { html += buildPickCard(p, false); });
 
     if (locked.length > 0) {
       locked.forEach(p => { html += buildPickCard(p, true); });
-    } else if (open.length >= 5) {
+    } else if (open.length >= 3) {
       // Pad with 3 dummy locked cards to always show the paywall
       for (let i = 0; i < 3; i++) {
         const dummy = open[i % open.length];

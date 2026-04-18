@@ -117,7 +117,7 @@
       "name": "What are the best NHL prop picks today?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The best NHL prop picks today are identified by Propeller's 6-agent AI system, which scores every player prop using no-vig probability analysis, special teams efficiency, injury impact, recent hit rate trends, line combination data, and defensive matchup differentials. The top picks are ranked by confidence score and updated daily before puck drop. Free users see the top 5 picks each day."
+        "text": "The best NHL prop picks today are identified by Propeller's 6-agent AI system, which scores every player prop using no-vig probability analysis, special teams efficiency, injury impact, recent hit rate trends, line combination data, and defensive matchup differentials. The top picks are ranked by confidence score and updated daily before puck drop. Free users see the top 3 picks each day."
       }
     },
     {
@@ -1969,7 +1969,7 @@ footer {
           <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <p class="faq-answer">
-          Today's best NHL prop picks are identified by Propeller's 6-agent AI system and displayed in the live picks section above, ranked by confidence score and updated daily before puck drop. The system scores every available player prop using no-vig probability analysis, special teams efficiency, injury impact, recent hit rate trends, line combination data, and defensive matchup differentials. Free users receive the top 5 picks each day. Premium subscribers unlock the full ranked slate across all sports.
+          Today's best NHL prop picks are identified by Propeller's 6-agent AI system and displayed in the live picks section above, ranked by confidence score and updated daily before puck drop. The system scores every available player prop using no-vig probability analysis, special teams efficiency, injury impact, recent hit rate trends, line combination data, and defensive matchup differentials. Free users receive the top 3 picks each day. Premium subscribers unlock the full ranked slate across all sports.
         </p>
       </details>
 
@@ -2330,7 +2330,7 @@ lucide.createIcons();
 
   const API_URL = `https://web-production-3c1c4.up.railway.app/api/social/picks/nhl?game_date=${dateStr}`;
   const FALLBACK_URL = `https://web-production-3c1c4.up.railway.app/api/nhl/props/analyze?game_date=${dateStr}&min_confidence=55&limit=200`;
-  const FREE_LIMIT = 5;
+  const FREE_LIMIT = 3;
   const PREMIUM_BLUR = 3;
 
   try {
