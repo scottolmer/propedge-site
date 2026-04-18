@@ -737,6 +737,81 @@ nav .btn { padding: 10px 20px; font-size: 14px; flex-shrink: 0; }
 
 .internal-links a:hover { opacity: 0.75; }
 
+.pathways-panel {
+  margin-top: 34px;
+  padding: 28px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0)),
+    rgba(14, 17, 23, 0.92);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.3);
+}
+
+.pathways-panel-head {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.pathways-panel-head p:last-child {
+  color: var(--text-tertiary);
+}
+
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pathway-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.pathway-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.22);
+  background: rgba(249, 115, 22, 0.05);
+}
+
+.pathway-card-label {
+  margin-bottom: 8px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.pathway-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.pathway-card p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.pathway-card span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .pathways-grid { grid-template-columns: 1fr; }
+}
+
 /* ---- FOOTER ---- */
 footer { padding: 0; border-top: 1px solid var(--glass-border); }
 .footer-top { padding: 60px 0 48px; }
@@ -991,6 +1066,37 @@ footer { padding: 0; border-top: 1px solid var(--glass-border); }
       <a href="/picks/pick6/">Pick6 Picks</a>
       <a href="/analyzer/">Try the Analyzer</a>
       <a href="/results/">Verified Results</a>
+    </div>
+
+    <div class="pathways-panel fade-in">
+      <div class="pathways-panel-head">
+        <p class="label" style="margin-bottom:10px;">Next Step</p>
+        <h2 class="section-title" style="text-align:left;margin-bottom:12px;">Comparisons answer one question. <span>These pages answer the next one.</span></h2>
+        <p>Once someone decides which tool or platform fits them, the next useful pages are live picks, strategy guides, and the verified record.</p>
+      </div>
+
+      <div class="pathways-grid">
+        <a href="/picks/" class="pathway-card fade-in">
+          <p class="pathway-card-label">Use it today</p>
+          <h3>Open the picks hub</h3>
+          <p>Move from tool evaluation into the daily NBA, NHL, MLB, NFL, soccer, and platform-specific boards.</p>
+          <span>Browse live picks <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a href="/guides/" class="pathway-card fade-in delay-1">
+          <p class="pathway-card-label">Learn the framework</p>
+          <h3>Read the core guides</h3>
+          <p>If the user still needs context, route them into strategy pages for PrizePicks, Pick6, Underdog, and NBA props.</p>
+          <span>See guide hub <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a href="/results/" class="pathway-card fade-in delay-2">
+          <p class="pathway-card-label">Trust but verify</p>
+          <h3>Check results</h3>
+          <p>Point comparison traffic to the public ledger and methodology so the proof sits close to the sales pages.</p>
+          <span>Review the record <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

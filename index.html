@@ -1250,6 +1250,125 @@ nav .btn { padding: 10px 20px; font-size: 14px; flex-shrink: 0; }
   .platforms-grid { gap: 32px; }
 }
 
+.pathways {
+  padding: 28px 0 84px;
+}
+
+.pathways-intro {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  text-align: center;
+  font-size: 17px;
+  color: var(--text-tertiary);
+}
+
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.pathway-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+    rgba(14, 17, 23, 0.9);
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  padding: 26px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.pathway-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 42%),
+    linear-gradient(135deg, rgba(249, 115, 22, 0.06), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.pathway-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(249, 115, 22, 0.22);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.34);
+}
+
+.pathway-card:hover::before { opacity: 1; }
+
+.pathway-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pathway-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: var(--accent);
+  background: rgba(249, 115, 22, 0.08);
+  border: 1px solid rgba(249, 115, 22, 0.14);
+}
+
+.pathway-kicker {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.pathway-card h3 {
+  font-size: 29px;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.pathway-card p {
+  margin-bottom: 18px;
+  color: var(--text-secondary);
+}
+
+.pathway-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.pathway-links span {
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.pathway-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .pathways-grid { grid-template-columns: 1fr; }
+}
+
 /* ──────────── FEATURES ──────────── */
 .features {
   padding: 100px 0;
@@ -2603,6 +2722,70 @@ footer {
         <img src="images/fanduellogo.jpeg" alt="FanDuel" class="platform-logo" loading="lazy" width="80" height="80">
         <span>FanDuel</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Site Paths -->
+<section class="pathways">
+  <div class="container">
+    <p class="label section-label fade-in">Explore the Site</p>
+    <h2 class="section-title fade-in">Four Clear Ways to Use <span style="color:var(--accent);">Propeller</span></h2>
+    <p class="pathways-intro fade-in">The homepage should route people somewhere specific. Whether they want today&apos;s picks, strategy education, tool comparisons, or proof, these are the main pages that matter.</p>
+
+    <div class="pathways-grid">
+      <a href="/picks/" class="pathway-card fade-in">
+        <div class="pathway-icon"><i data-lucide="calendar-range" width="22" height="22"></i></div>
+        <p class="pathway-kicker">Live Boards</p>
+        <h3>Start with today&apos;s picks</h3>
+        <p>Open the sport and platform hubs that refresh daily, then jump straight into the web app when you want the full board.</p>
+        <div class="pathway-links">
+          <span>NBA</span>
+          <span>NFL</span>
+          <span>PrizePicks</span>
+          <span>Pick6</span>
+        </div>
+        <span class="pathway-cta">Browse picks <i data-lucide="arrow-up-right" width="16" height="16"></i></span>
+      </a>
+
+      <a href="/guides/" class="pathway-card fade-in delay-1">
+        <div class="pathway-icon"><i data-lucide="book-open" width="22" height="22"></i></div>
+        <p class="pathway-kicker">Education</p>
+        <h3>Learn the strategy first</h3>
+        <p>Read the core guide pages for PrizePicks, Pick6, Underdog, NBA props, and player-prop analysis before building a board.</p>
+        <div class="pathway-links">
+          <span>PrizePicks Guide</span>
+          <span>NBA Props</span>
+          <span>How to Analyze Props</span>
+        </div>
+        <span class="pathway-cta">Read the guides <i data-lucide="arrow-up-right" width="16" height="16"></i></span>
+      </a>
+
+      <a href="/compare/" class="pathway-card fade-in">
+        <div class="pathway-icon"><i data-lucide="split-square-vertical" width="22" height="22"></i></div>
+        <p class="pathway-kicker">Decision Pages</p>
+        <h3>Compare tools and platforms</h3>
+        <p>Use the comparison hub when the search intent is “which one should I use?” It connects platform choices and competitor alternatives in one place.</p>
+        <div class="pathway-links">
+          <span>Pick6 vs PrizePicks</span>
+          <span>vs BettingPros</span>
+          <span>vs OddsJam</span>
+        </div>
+        <span class="pathway-cta">See comparisons <i data-lucide="arrow-up-right" width="16" height="16"></i></span>
+      </a>
+
+      <a href="/results/" class="pathway-card fade-in delay-1">
+        <div class="pathway-icon"><i data-lucide="badge-check" width="22" height="22"></i></div>
+        <p class="pathway-kicker">Trust</p>
+        <h3>Verify the engine</h3>
+        <p>Check the public record, then open the methodology page to understand how the scores are built before you pay attention to any recommendation.</p>
+        <div class="pathway-links">
+          <span>Results</span>
+          <span>How It Works</span>
+          <span>No cherry-picking</span>
+        </div>
+        <span class="pathway-cta">Review the proof <i data-lucide="arrow-up-right" width="16" height="16"></i></span>
+      </a>
     </div>
   </div>
 </section>

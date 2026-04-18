@@ -894,6 +894,84 @@ nav .btn { padding: 10px 20px; font-size: 14px; flex-shrink: 0; }
   gap: 8px;
 }
 
+.pathways-section {
+  padding: 8px 0 22px;
+}
+
+.pathways-shell {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+    rgba(14, 17, 23, 0.92);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+}
+
+.pathways-head {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.pathways-head p:last-child {
+  color: var(--text-tertiary);
+}
+
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pathway-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.pathway-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.22);
+  background: rgba(249, 115, 22, 0.05);
+}
+
+.pathway-card-label {
+  margin-bottom: 8px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.pathway-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.pathway-card p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.pathway-card span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .pathways-grid { grid-template-columns: 1fr; }
+}
+
 /* ---- HOW IT WORKS STRIP ---- */
 .how-section {
   padding: 80px 0;
@@ -1441,6 +1519,42 @@ footer {
         <span class="platform-card-link">See Underdog Picks <span aria-hidden="true">&#8594;</span></span>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<!-- Pick Flow -->
+<section class="pathways-section" aria-labelledby="pathways-heading">
+  <div class="container">
+    <div class="pathways-shell fade-in">
+      <div class="pathways-head">
+        <p class="label" style="margin-bottom:10px;">Build the Workflow</p>
+        <h2 class="section-title" id="pathways-heading" style="text-align:left;margin-bottom:12px;">Picks are the destination. <span>The rest of the site explains why.</span></h2>
+        <p>Daily picks pages should connect back to education, comparisons, and proof. This keeps the site hierarchy clean and gives people the context they need before they trust a board.</p>
+      </div>
+
+      <div class="pathways-grid">
+        <a href="/guides/" class="pathway-card fade-in">
+          <p class="pathway-card-label">Learn the process</p>
+          <h3>Read the guides</h3>
+          <p>Use the guide hub for bankroll rules, platform strategy, and the core framework behind player-prop analysis.</p>
+          <span>Open guide hub <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a href="/compare/" class="pathway-card fade-in delay-1">
+          <p class="pathway-card-label">Choose the right setup</p>
+          <h3>Compare platforms and tools</h3>
+          <p>If the question is whether to use Pick6, PrizePicks, Propeller, OddsJam, or BettingPros, route into the comparison pages.</p>
+          <span>View comparisons <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a href="/results/" class="pathway-card fade-in delay-2">
+          <p class="pathway-card-label">Check the proof</p>
+          <h3>Review verified results</h3>
+          <p>Keep the public record close to the picks hub so users and crawlers see the trust pages as part of the main flow.</p>
+          <span>See results <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

@@ -644,6 +644,85 @@ nav .btn { padding: 10px 20px; font-size: 14px; flex-shrink: 0; }
 
 .guide-card:hover .guide-card-link { gap: 10px; }
 
+.pathways-section {
+  padding: 12px 0 16px;
+}
+
+.pathways-shell {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+    rgba(14, 17, 23, 0.92);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+}
+
+.pathways-head {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.pathways-head p:last-child {
+  color: var(--text-tertiary);
+  font-size: 16px;
+}
+
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pathway-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.pathway-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.22);
+  background: rgba(249, 115, 22, 0.05);
+}
+
+.pathway-card-label {
+  margin-bottom: 8px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.pathway-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.pathway-card p {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.pathway-card span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .pathways-grid { grid-template-columns: 1fr; }
+}
+
 /* ALSO SEE SECTION */
 .also-see-section {
   padding: 20px 0 60px;
@@ -1068,6 +1147,42 @@ footer {
         <span class="guide-card-link">Read Guide <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<!-- Guide Paths -->
+<section class="pathways-section">
+  <div class="container">
+    <div class="pathways-shell fade-in">
+      <div class="pathways-head">
+        <p class="label" style="margin-bottom:10px;">Next Step</p>
+        <h2 style="font-size:clamp(28px,4vw,40px);margin-bottom:12px;">Use the guide, then move to the <span style="color:var(--accent);">right page</span></h2>
+        <p>Guide traffic should not dead-end. After someone learns the framework, the next useful moves are live picks, platform comparisons, and the public proof pages.</p>
+      </div>
+
+      <div class="pathways-grid">
+        <a href="/picks/" class="pathway-card fade-in">
+          <p class="pathway-card-label">Apply it</p>
+          <h3>See today&apos;s picks</h3>
+          <p>Jump from theory into the daily sport and platform boards where the live props are already ranked.</p>
+          <span>Open picks hub <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a href="/compare/" class="pathway-card fade-in delay-1">
+          <p class="pathway-card-label">Choose a setup</p>
+          <h3>Compare tools</h3>
+          <p>Use the comparison pages if the real question is whether to play Pick6 or PrizePicks, or whether Propeller fits better than another tool.</p>
+          <span>View comparisons <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a href="/results/" class="pathway-card fade-in delay-2">
+          <p class="pathway-card-label">Verify it</p>
+          <h3>Check the record</h3>
+          <p>Read the full historical results and methodology before you trust any model, guide, or confidence score.</p>
+          <span>Review results <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
