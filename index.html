@@ -3525,15 +3525,6 @@ footer {
     <p class="label section-label fade-in">Pricing</p>
     <h2 class="section-title fade-in">Pick Your Plan</h2>
 
-    <!-- Billing toggle -->
-    <div class="billing-toggle fade-in" id="billingToggle" role="group" aria-label="Billing period">
-      <span class="billing-toggle-label active" id="billingLabelMonthly">Monthly</span>
-      <div class="billing-toggle-track" id="billingTrack" role="switch" aria-checked="false" tabindex="0" aria-label="Switch to annual billing">
-        <div class="billing-toggle-thumb"></div>
-      </div>
-      <span class="billing-toggle-label" id="billingLabelAnnual">Annual <span class="annual-save-badge">Save 17%</span></span>
-    </div>
-
     <div class="pricing-grid">
       <div class="card pricing-card pricing-card-free fade-in">
         <p class="label">Free</p>
@@ -3554,8 +3545,7 @@ footer {
         <h3>Propeller Pro</h3>
         <p class="pricing-description">Full web access, advanced tools, and the free iOS companion app for tracking picks on the go.</p>
         <div class="pricing-price">
-          <span class="amount" id="proAmount">$29.99</span><span class="period" id="proPeriod"> /mo</span>
-          <div class="pricing-yearly" id="proYearlyNote">or $299.99/yr <span class="save-badge">Save 17%</span></div>
+          <span class="amount">$9.99</span><span class="period"> /mo</span>
         </div>
         <ul class="pricing-features">
           <li><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Unlimited props and full agent breakdowns</li>
@@ -3583,7 +3573,7 @@ footer {
             <th class="col-propedge">
               <span class="compare-col-label">You are here</span>
               <span class="compare-col-name">Propeller</span>
-              <span class="compare-col-price">$29.99/mo</span>
+              <span class="compare-col-price">$9.99/mo</span>
             </th>
             <th>
               <span class="compare-col-name">Props.Cash</span>
@@ -4285,51 +4275,6 @@ function handleContact(e) {
   return false;
 }
 
-// Billing toggle — Monthly / Annual
-(function() {
-  var track = document.getElementById('billingTrack');
-  var labelMonthly = document.getElementById('billingLabelMonthly');
-  var labelAnnual = document.getElementById('billingLabelAnnual');
-  var proAmount = document.getElementById('proAmount');
-  var proPeriod = document.getElementById('proPeriod');
-  var proYearlyNote = document.getElementById('proYearlyNote');
-  if (!track) return;
-
-  var isAnnual = false;
-
-  function applyState() {
-    if (isAnnual) {
-      track.classList.add('annual');
-      track.setAttribute('aria-checked', 'true');
-      labelMonthly.classList.remove('active');
-      labelAnnual.classList.add('active');
-      if (proAmount) proAmount.textContent = '$25.00';
-      if (proPeriod) proPeriod.textContent = ' /mo';
-      if (proYearlyNote) proYearlyNote.innerHTML = 'billed $299.99/yr &mdash; <strong style="color:var(--accent)">Save 17%</strong>';
-    } else {
-      track.classList.remove('annual');
-      track.setAttribute('aria-checked', 'false');
-      labelMonthly.classList.add('active');
-      labelAnnual.classList.remove('active');
-      if (proAmount) proAmount.textContent = '$29.99';
-      if (proPeriod) proPeriod.textContent = ' /mo';
-      if (proYearlyNote) proYearlyNote.innerHTML = 'or $299.99/yr <span class="save-badge">Save 17%</span>';
-    }
-  }
-
-  track.addEventListener('click', function() {
-    isAnnual = !isAnnual;
-    applyState();
-  });
-  track.addEventListener('keydown', function(e) {
-    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); isAnnual = !isAnnual; applyState(); }
-  });
-  // Make the text labels clickable too
-  labelMonthly.style.cursor = 'pointer';
-  labelAnnual.style.cursor = 'pointer';
-  labelMonthly.addEventListener('click', function() { if (isAnnual) { isAnnual = false; applyState(); } });
-  labelAnnual.addEventListener('click', function() { if (!isAnnual) { isAnnual = true; applyState(); } });
-})();
 </script>
 
 </body>
